@@ -13,7 +13,7 @@
         }
     });
 
-    require(['jquery', 'angular'], function($) {
+    require(['jquery'], function($) {
         console.log($);
     });
 })();
