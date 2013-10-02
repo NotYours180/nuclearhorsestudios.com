@@ -12,8 +12,8 @@
           jqueryPrivate: { jquery: 'jquery' }
         }
     });
-})();
 
-require(['jquery', 'angular'], function($) {
-    console.log($);
-});
+    require(['jquery', 'angular'], function($) {
+        console.log($);
+    });
+})();
