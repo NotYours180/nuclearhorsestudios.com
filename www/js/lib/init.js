@@ -7,9 +7,9 @@
         },
 
         map: {
-          '*': { jquery: 'jqueryPrivate' },
+          '*': { jquery: 'dep/jqueryPrivate' },
 
-          jqueryPrivate: { jquery: 'jquery' }
+          'dep/jqueryPrivate': { jquery: 'jquery' }
         }
     });
 
