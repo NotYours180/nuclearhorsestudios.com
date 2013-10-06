@@ -3,8 +3,9 @@ requirejs.config({
     baseUrl: '../js/lib',
     paths: {
         jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
-        angular: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min',
-        ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.min',
+        angular: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min',
+        ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
+        ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
         underscore: 'dep/underscore.min',
         BlogController: 'NuclearHorseStudios/BlogController'
     },
@@ -16,6 +17,10 @@ requirejs.config({
         'ngResource': {
             deps: ['angular'],
             exports: 'ngResource'
+        },
+        'ngRoute': {
+            deps: ['angular'],
+            exports: 'ngRoute',
         },
         'underscore': {
             exports: '_'
@@ -30,28 +35,30 @@ requirejs.config({
     }
 });
 
-define(['jquery', 'angular', 'ngResource', 'BlogController', 'underscore'], 
+define(['jquery', 'angular', 'ngResource', 'ngRoute', 'BlogController', 'underscore'], 
     
-    function($, angular, ngResource, BlogController) {
+    function($, angular, ngResource, ngRoute, BlogController) {
 
-        var nhs = angular.module('NuclearHorseStudios', ['ngResource']);
-            
+        var nhs = angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute']);
+        
+        nhs.config([
+            '$routeProvider', 
+            function($routeProvider) {
+                console.log($routeProvider);
+                $routeProvider
+                    .when('/blog', {
+                        templateUrl: 'partials/blog.html', 
+                        controller: BlogController
+                    })
+                    .otherwise({redirectTo: '/blog'});
+            }
+        ]);
+
         nhs.controller('BlogController', BlogController);
         
         angular.bootstrap(document, ['NuclearHorseStudios']);
         
-        // // nhs_www.config([
-        //     '$routeProvider', 
-        //     function($routeProvider) {
-        //         console.log($routeProvider);
-        //         $routeProvider
-        //             .when('/blog', {
-        //                 templateUrl: 'partials/blog.html', 
-        //                 controller: BlogController
-        //             })
-        //             .otherwise({redirectTo: '/blog'});
-        //     }
-        // ]);
+        
         
         return nhs;
     }
