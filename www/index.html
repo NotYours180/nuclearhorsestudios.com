@@ -56,6 +56,7 @@
             body {
                 position: absolute;
                 height: auto;
+                min-width: 720px; 
                 left: 0;
                 right: 0;
                 bottom: 0;
@@ -63,6 +64,8 @@
                 color: #e3e3e3;
                 background-color: #1c1714;
                 overflow: hidden;
+
+                font-family: 'Oswald', sans-serif;
             }
 
 
@@ -72,7 +75,7 @@
                 bottom: 0;
                 z-index: 100;
                 height: 100%;
-                width: 9%;
+                width: 7%;
                 box-shadow: 0px 0px 20px black;
                 background-color: #1c1714;
                 background-image: url(images/backgroundImage.png);
@@ -88,7 +91,9 @@
             }
 
             #upper-view {
-                width: 100%;
+                width: 86%;
+                margin-left: auto;
+                margin-right: auto;
                 height: 35%;
                 min-height: 175px;
                 min-width: 640px;
@@ -96,19 +101,33 @@
                 background-size: 100% 100%;
             }
 
+            h1 {
+                text-align: right;
+                font-size: 3.5em;
+                height: 1.2em;
+                padding-top: 0.15em;
+                padding-right: 0.25em;
+                background-image: url(images/black_25.png);
+            }
+
             #content-container {
+                position: relative;
                 z-index: 20;
-                width: 81%;
+                width: 86%;
                 margin-left: auto;
                 margin-right: auto;
+                height: 1000px;
+                top: -5.5em;
+            }
+
+            #content-view {
                 background-image: url(images/contentBackground.png);
                 background-repeat: repeat-y;
                 background-size: 100%;
-                height: 1000px;
+                height: 100%;
             }
 
             nav ul {
-                margin-bottom: 1em;
                 background-image: url(images/navBackground.png);
                 padding-top: 0.5em;
                 padding-bottom: 0.5em;
@@ -122,7 +141,7 @@
             nav ul li a {
                 text-decoration: none;
                 color: #ffe6ba;
-                font-family: 'Oswald', sans-serif;
+                
                 font-size: 2.2em;
                 font-weight: 100;
             }
@@ -138,6 +157,7 @@
         </div>
         <div id="upper-view"></div>
         <div id="content-container">
+            <h1>NUCLEAR HORSE STUDIOS</h1>
             <nav>
                 <ul>
                     <li><a href="#/blog">BLOG</a></li>
