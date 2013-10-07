@@ -1,5 +1,6 @@
 define([], function() {
     return function ($scope) {
-        $scope.hello = 'hi';
+        $scope.posts =[];
+        console.log('controller instantiated')
     }
 });

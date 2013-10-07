@@ -2,25 +2,27 @@ define([
     'jquery', 
     'angular', 
     'ngResource', 
-    'ngRoute', 
     'BlogController',
     'jasmine',
     'jasmineFixture',
     'underscore'],
 
-    function($, angular, ngResource, ngRoute, BlogController) {
-        var container;
-
-        beforeEach(function() {
-            container = affix('#container');
-        });
+    function($, angular, ngResource, BlogController) {
+        
+        
 
         describe("Blog Controller", function() {
-            
-            it('should be true', function() {
-                expect($(container).length).toBe(1);
+            var $scope;
+
+            beforeEach(function() {
+                $scope = {};
+                BlogController($scope);
             });
 
+            it('should be true', function() {
+                console.log($scope);
+
+            });
         });
     }
 );

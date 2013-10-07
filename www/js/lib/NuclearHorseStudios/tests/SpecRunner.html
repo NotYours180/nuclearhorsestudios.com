@@ -69,7 +69,7 @@
 
 
   <script type="text/javascript">
-    require(['jasmine', 'jasmineHtml', 'BlogControllerSpec'], function() {
+    require(['BlogController', 'jasmine', 'jasmineHtml', 'BlogControllerSpec'], function(BlogController) {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
 
