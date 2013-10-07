@@ -41,10 +41,21 @@ define(['jquery', 'angular', 'ngResource', 'ngRoute', 'BlogController', 'undersc
 
         var nhs = angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute']);
         
+        nhs.directive('parallax', function () {
+            return {
+              restrict: 'A',
+              link: function (scope, elem, attrs) {
+                console.log($);
+                $(window).on('scroll', function(ev) {
+                    ev.preventDefault();
+                });
+              }
+            }
+        });
+
         nhs.config([
             '$routeProvider', 
             function($routeProvider) {
-                console.log($routeProvider);
                 $routeProvider
                     .when('/blog', {
                         templateUrl: 'partials/blog.html', 
@@ -57,9 +68,7 @@ define(['jquery', 'angular', 'ngResource', 'ngRoute', 'BlogController', 'undersc
         nhs.controller('BlogController', BlogController);
         
         angular.bootstrap(document, ['NuclearHorseStudios']);
-        
-        
-        
+    
         return nhs;
     }
 );

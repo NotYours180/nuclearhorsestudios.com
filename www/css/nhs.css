@@ -58,14 +58,13 @@ body {
     top: 0;
     color: #e3e3e3;
     background-color: #1c1714;
-    overflow: hidden;
 
     font-family: 'Oswald', sans-serif;
 }
 
 
 div.facia > div.margin {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     z-index: 100;
