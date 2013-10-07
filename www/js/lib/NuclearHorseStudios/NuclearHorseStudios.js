@@ -7,7 +7,9 @@ requirejs.config({
         ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
         ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
         underscore: 'dep/underscore.min',
-        BlogController: 'NuclearHorseStudios/BlogController'
+        BlogController: 'NuclearHorseStudios/BlogController',
+        CreationsController: 'NuclearHorseStudios/CreationsController',
+        ContactController: 'NuclearHorseStudios/ContactController'
     },
     shim: {
         'angular': { 
@@ -35,31 +37,43 @@ requirejs.config({
     }
 });
 
-define(['jquery', 'angular', 'ngResource', 'ngRoute', 'BlogController', 'underscore'], 
+define([
+    'jquery', 
+    'angular', 
+    'ngResource', 
+    'ngRoute', 
+    'BlogController', 
+    'CreationsController',
+    'ContactController',
+    'underscore'], 
     
-    function($, angular, ngResource, ngRoute, BlogController) {
+    function(   $, 
+                angular, 
+                ngResource, 
+                ngRoute, 
+                BlogController, 
+                ContactController, 
+                CreationsController) 
+    {
 
         var nhs = angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute']);
-        
-        nhs.directive('parallax', function () {
-            return {
-              restrict: 'A',
-              link: function (scope, elem, attrs) {
-                console.log($);
-                $(window).on('scroll', function(ev) {
-                    ev.preventDefault();
-                });
-              }
-            }
-        });
 
         nhs.config([
             '$routeProvider', 
+
             function($routeProvider) {
                 $routeProvider
                     .when('/blog', {
                         templateUrl: 'partials/blog.html', 
                         controller: BlogController
+                    })
+                     .when('/creations', {
+                        templateUrl: 'partials/creations.html', 
+                        controller: CreationsController
+                    })
+                      .when('/contact', {
+                        templateUrl: 'partials/contact.html', 
+                        controller: ContactController
                     })
                     .otherwise({redirectTo: '/blog'});
             }
