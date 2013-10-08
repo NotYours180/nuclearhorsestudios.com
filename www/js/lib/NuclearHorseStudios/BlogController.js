@@ -1,7 +1,7 @@
 define(['angular', 'ngResource', 'underscore'], function(angular, ngResource) {
     return function ($scope, $http) {
         
-        $http.get("http://nuclearhorsestudios.com:5984/nuclearhorseblog/_design/blog/_view/all")
+        $http.get("http://nuclearhorsestudios.com/nuclearhorseblog/_design/blog/_view/all")
             .success(function(data, status, headers, config) {
                 $scope.posts = _(data.rows).map(function(row) {
                     var blogPostData    = row.value;
