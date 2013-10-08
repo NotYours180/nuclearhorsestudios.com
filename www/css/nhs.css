@@ -113,7 +113,6 @@ div.facia > div.margin {
     top: 30% !important;
     margin-left: auto;
     margin-right: auto;
-    height: 5000px;
     top: -5.5em;
 }
 
@@ -144,4 +143,37 @@ nav ul li a {
     
     font-size: 2.2em;
     font-weight: 100;
+}
+
+.blog-post {
+    margin: 0.5em;
+    background-image: url(../images/black_25.png);
+    border-radius: 1em;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.blog-post h2 {
+    padding: 0.25em;
+    padding-bottom: 0;
+    color: #ffe6ba;
+    font-size: 2.5em;
+}
+
+.blog-post span.blog-date {
+    display: inline-block;
+    padding-left: 1.5em;
+    font-size: 50%;
+    margin-bottom: 1em;
+    color: #e4e4e4;
+    font-family: arial, sans-serif;
+}
+
+.blog-post p {
+    padding: 0.25em;
+    padding-left: 1em;
+    font-weight: normal;
+    font-size: 95%;
+    line-height: 1.5em;
+    font-family: verdana, sans-serif;
 }

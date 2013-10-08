@@ -35,6 +35,7 @@ requirejs.config({
         'dep/jqueryPrivate':  { jquery:  'jquery'  }
     }
 });
+
 define([
     'jquery', 
     'angular', 
