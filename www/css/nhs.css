@@ -208,7 +208,7 @@ nav ul li a {
 #blog-post-add form input, #blog-post-add form textarea {
     display: block;
     color: #333333;
-    font-size: 200%;
+    font-size: 150%;
     background-color: #e4e4e4;
     margin-bottom: 1em;
     width: 100%;
@@ -218,7 +218,7 @@ nav ul li a {
 }
 
 #blog-post-add form textarea {
-    height: 15em;
+    height: 8em;
 }
 
 #blog-post-add form button {

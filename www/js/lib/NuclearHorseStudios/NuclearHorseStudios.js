@@ -88,8 +88,8 @@ define([
         nhs.directive('blogPostDate', function() {
             return {
                 link: function ($scope, $linkElement, $linkAttributes) {
-                        var date            = new Date($scope.post.date * 1000);
-                        $scope.post.date   = date.toDateString() + ' - ' + date.toLocaleTimeString();
+                    var date         = new Date($scope.post.date);
+                    $scope.post.date = date.toDateString() + ' - ' + date.toLocaleTimeString();
                 }
             };
         });
