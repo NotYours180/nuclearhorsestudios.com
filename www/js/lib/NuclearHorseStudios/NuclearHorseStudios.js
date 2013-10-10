@@ -5,6 +5,8 @@ requirejs.config({
         angular: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min',
         ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
         ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
+        jqueryMarkdown: 'dep/jquery.markdown',
+        showdown: 'dep/showdown',
         underscore: 'dep/underscore.min',
         BlogAddController: 'NuclearHorseStudios/BlogAddController',
         RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
@@ -12,19 +14,22 @@ requirejs.config({
         ContactController: 'NuclearHorseStudios/ContactController',
     },
     shim: {
-        'angular': { 
+        angular: { 
             deps: ['jquery'],
             exports: 'angular'
         },
-        'ngResource': {
+        ngResource: {
             deps: ['angular'],
             exports: 'ngResource'
         },
-        'ngRoute': {
+        ngRoute: {
             deps: ['angular'],
             exports: 'ngRoute',
         },
-        'underscore': {
+        showdown: {
+            exports: 'Showdown'
+        },
+        underscore: {
             exports: '_'
         }
     },
@@ -41,12 +46,13 @@ define([
     'jquery', 
     'angular', 
     'ngResource', 
-    'ngRoute', 
+    'ngRoute',
     'BlogAddController',
     'RecentBlogPosts',
     'CreationsController',
     'ContactController',
-    'underscore'], 
+    'underscore',
+    'showdown'], 
     
     function(   $, 
                 angular, 
@@ -92,6 +98,31 @@ define([
                     $scope.post.date = date.toDateString() + ' - ' + date.toLocaleTimeString();
                 }
             };
+        });
+
+        nhs.filter('markdown', ['$sce', function ($sce) {
+            return function(input) {
+                var converter = new Showdown.converter();
+                return  $sce.trustAsHtml(converter.makeHtml(input || ''));
+            }
+        }]);
+
+        nhs.factory('blogData', function($http) {
+            var factory = {}
+
+            factory.getRecentPosts = function(num) {
+                var blogPostsUri = "http://nuclearhorsestudios.com/nuclearhorseblog/_design/blog/_view/all";
+                
+                return $http.get(blogPostsUri + '?limit=' + num + '&descending=true')   
+            }
+
+            factory.addPost = function(post) {
+                var dbLocation = "http://nuclearhorsestudios.com/nuclearhorseblog/";
+                
+                return $http.post(dbLocation, post)
+            }
+
+            return factory;
         });
 
         

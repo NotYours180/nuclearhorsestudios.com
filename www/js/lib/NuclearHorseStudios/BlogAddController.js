@@ -1,19 +1,17 @@
-define(['jquery', 'angular', 'ngResource', 'underscore'], function($, angular, ngResource) {
-    return function ($scope, $http) {
+define([], function() {
+    return function ($scope, blogData, $sce) {
 
-        var $formElems = $("#blog-post-add :input");
-        var dbLocation = "http://nuclearhorsestudios.com/nuclearhorseblog/";
         var self       = this;
+        var isPosting  = false;
 
         this.onPostSuccess = function(data, status, headers, config) {
             $scope.resetPost();
             $scope.status = 'Post Successful!';
-            $formElems.attr("disabled", false);
+            isPosting = false;
         }
 
         this.onPostError = function(data, status, headers, config) {
             $scope.status = status + ' - ' + data.error + ":" + data.reason;
-            $formElems.attr("disabled", false);
         }
 
         $scope.savePost = function() {
@@ -23,21 +21,23 @@ define(['jquery', 'angular', 'ngResource', 'underscore'], function($, angular, n
                 return; 
             }
 
+            if (isPosting === true) { return; } else { isPosting = true; } 
+
             $scope.post.date = new Date().getTime();
             $scope.status = 'Submitting form ...';
             
-            $formElems.attr("disabled", true);
-            
-            $http.post(dbLocation, $scope.post)
+            blogData.addPost($scope.post)
                 .success(self.onPostSuccess)
                 .error(self.onPostError); 
         }
 
         $scope.resetPost = function() {
-           $scope.post = {};
-           $scope.post.date = new Date().getTime();
-           $scope.post.type = "blogpost";
+            $scope.post = {};
+            $scope.post.date = new Date().getTime();
+            $scope.post.type = "blogpost";
+            $scope.status = '';
         }
+
 
         $scope.resetPost();
     }
