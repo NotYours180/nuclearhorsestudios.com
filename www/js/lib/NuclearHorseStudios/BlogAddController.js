@@ -12,12 +12,17 @@ define(['jquery', 'angular', 'ngResource', 'underscore'], function($, angular, n
         }
 
         this.onPostError = function(data, status, headers, config) {
-            $scope.status = status;
+            $scope.status = status + ' - ' + data.error + ":" + data.reason;
             $formElems.attr("disabled", false);
         }
 
         $scope.savePost = function() {
             
+            if (!$scope.addForm.$valid) { 
+                $scope.status = "Form Invalid"; 
+                return; 
+            }
+
             $scope.post.date = new Date().getTime();
             $scope.status = 'Submitting form ...';
             

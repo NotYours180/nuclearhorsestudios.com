@@ -201,8 +201,13 @@ nav ul li a {
 }
 
 #blog-post-add form label {
-    display: block;
+    display: inline-block;
     margin-bottom: 0.25em;
+}
+
+#blog-post-add form span.validation {
+    float: right;
+    color: #ffaaaa;
 }
 
 #blog-post-add form input, #blog-post-add form textarea {
