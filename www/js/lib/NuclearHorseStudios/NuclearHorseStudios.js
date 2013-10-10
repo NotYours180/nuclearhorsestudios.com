@@ -101,9 +101,10 @@ define([
         });
 
         nhs.filter('markdown', ['$sce', function ($sce) {
+            var trusted = {};
             return function(input) {
                 var converter = new Showdown.converter();
-                return  $sce.trustAsHtml(converter.makeHtml(input || ''));
+                return trusted[input] || (trusted[input] = $sce.trustAsHtml(converter.makeHtml(input || ''))); 
             }
         }]);
 
