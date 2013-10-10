@@ -6,9 +6,10 @@ requirejs.config({
         ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
         ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
         underscore: 'dep/underscore.min',
-        BlogController: 'NuclearHorseStudios/BlogController',
+        BlogAddController: 'NuclearHorseStudios/BlogAddController',
+        RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
         CreationsController: 'NuclearHorseStudios/CreationsController',
-        ContactController: 'NuclearHorseStudios/ContactController'
+        ContactController: 'NuclearHorseStudios/ContactController',
     },
     shim: {
         'angular': { 
@@ -41,7 +42,8 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute', 
-    'BlogController', 
+    'BlogAddController',
+    'RecentBlogPosts',
     'CreationsController',
     'ContactController',
     'underscore'], 
@@ -50,7 +52,8 @@ define([
                 angular, 
                 ngResource, 
                 ngRoute, 
-                BlogController, 
+                BlogAddController,
+                RecentBlogPosts,
                 ContactController, 
                 CreationsController) 
     {
@@ -63,8 +66,12 @@ define([
             function($routeProvider) {
                 $routeProvider
                     .when('/blog', {
-                        templateUrl: 'partials/blog.html', 
-                        controller: BlogController
+                        templateUrl: 'partials/recent-blog-posts.html', 
+                        controller: RecentBlogPosts
+                    })
+                    .when ('/blog/add', {
+                        templateUrl: 'partials/blog-add.html',
+                        controller: BlogAddController
                     })
                     .when('/creations', {
                         templateUrl: 'partials/creations.html', 
@@ -77,6 +84,16 @@ define([
                     .otherwise({redirectTo: '/blog'});
             }
         ]);
+
+        nhs.directive('blogPostDate', function() {
+            return {
+                link: function ($scope, $linkElement, $linkAttributes) {
+                        var date            = new Date($scope.post.date * 1000);
+                        $scope.post.date   = date.toDateString() + ' - ' + date.toLocaleTimeString();
+                }
+            };
+        });
+
         
         angular.bootstrap(document, ['NuclearHorseStudios']);
     

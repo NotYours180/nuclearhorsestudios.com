@@ -47,8 +47,13 @@ table {
     border-spacing: 0;
 }
 
+.clear {
+    float: none;
+    clear: both;
+}
+
 /* Demarcate */
-.demarcate_hide{display:none}textarea#demarcate{margin-top:5px;width:100%;font-size:1.2em;max-height:500px;height:1em;background:none;border:none}div#demarcate_toolbar{display:block;width:100%;min-height:35px;margin-bottom:40px;border-top:1px solid #303030;background:#EEE}div#demarcate_toolbar a,div#demarcate_toolbar a:visited,div#demarcate_toolbar p{padding:0;margin:5px 5px 1px 1px;float:left;min-width:24px;min-height:24px}div#demarcate_toolbar p{min-width:12px}div#demarcate_toolbar a#demarcate_h1{background:url(../images/demarcate_sprite.png) no-repeat 0 0}div#demarcate_toolbar a#demarcate_h2{background:url(../images/demarcate_sprite.png) no-repeat -24px 0}div#demarcate_toolbar a#demarcate_h3{background:url(../images/demarcate_sprite.png) no-repeat -48px 0}div#demarcate_toolbar a#demarcate_h4{background:url(../images/demarcate_sprite.png) no-repeat -72px 0}div#demarcate_toolbar a#demarcate_h5{background:url(../images/demarcate_sprite.png) no-repeat -96px 0}div#demarcate_toolbar a#demarcate_h6{background:url(../images/demarcate_sprite.png) no-repeat 0 -24px}div#demarcate_toolbar a#demarcate_p{background:url(../images/demarcate_sprite.png) no-repeat -96px -24px}div#demarcate_toolbar a#demarcate_code{background:url(../images/demarcate_sprite.png) no-repeat -72px -24px}div#demarcate_toolbar a#demarcate_pre{background:url(../images/demarcate_sprite.png) no-repeat -120px 0}div#demarcate_toolbar a#demarcate_ul{background:url(../images/demarcate_sprite.png) no-repeat -24px -24px}div#demarcate_toolbar a#demarcate_ol{background:url(../images/demarcate_sprite.png) no-repeat -48px -24px}div#demarcate_toolbar a#demarcate_blockquote{background:url(../images/demarcate_sprite.png) no-repeat -48px -48px}div#demarcate_toolbar a#demarcate_save{background:url(../images/demarcate_sprite.png) no-repeat 0 -48px}div#demarcate_toolbar a#demarcate_cancel{background:url(../images/demarcate_sprite.png) no-repeat -24px -48px}div#demarcate_toolbar a#demarcate_up{background:url(../images/demarcate_sprite.png) no-repeat -72px -48px}div#demarcate_toolbar a#demarcate_down{background:url(../images/demarcate_sprite.png) no-repeat -96px -48px}div#demarcate_toolbar a#demarcate_help{background:url(../images/demarcate_sprite.png) no-repeat -120px -24px}div#demarcate_toolbar p{background:url(../images/demarcate_separator.png) no-repeat}div#demarcate_toolbar a.active{border:1px solid #303030;margin:4px 4px 0 0}.demarcate_editable:hover{background:#EEE;cursor:pointer}
+.demarcate_hide{display:none}textarea#demarcate{margin-top:5px;width:100%;font-size:1.2em;max-height:500px;height:1em;background:none;border:none}div#demarcate_toolbar{display: block;margin-left: auto;margin-right: auto;min-height: 35px;margin-bottom: 40px;border-top: 1px solid #303030;background: #EEE;width: 520px;}div#demarcate_toolbar a,div#demarcate_toolbar a:visited,div#demarcate_toolbar p{padding:0;margin:5px 5px 1px 1px;float:left;min-width:24px;min-height:24px}div#demarcate_toolbar p{min-width:12px}div#demarcate_toolbar a#demarcate_h1{background:url(../images/demarcate_sprite.png) no-repeat 0 0}div#demarcate_toolbar a#demarcate_h2{background:url(../images/demarcate_sprite.png) no-repeat -24px 0}div#demarcate_toolbar a#demarcate_h3{background:url(../images/demarcate_sprite.png) no-repeat -48px 0}div#demarcate_toolbar a#demarcate_h4{background:url(../images/demarcate_sprite.png) no-repeat -72px 0}div#demarcate_toolbar a#demarcate_h5{background:url(../images/demarcate_sprite.png) no-repeat -96px 0}div#demarcate_toolbar a#demarcate_h6{background:url(../images/demarcate_sprite.png) no-repeat 0 -24px}div#demarcate_toolbar a#demarcate_p{background:url(../images/demarcate_sprite.png) no-repeat -96px -24px}div#demarcate_toolbar a#demarcate_code{background:url(../images/demarcate_sprite.png) no-repeat -72px -24px}div#demarcate_toolbar a#demarcate_pre{background:url(../images/demarcate_sprite.png) no-repeat -120px 0}div#demarcate_toolbar a#demarcate_ul{background:url(../images/demarcate_sprite.png) no-repeat -24px -24px}div#demarcate_toolbar a#demarcate_ol{background:url(../images/demarcate_sprite.png) no-repeat -48px -24px}div#demarcate_toolbar a#demarcate_blockquote{background:url(../images/demarcate_sprite.png) no-repeat -48px -48px}div#demarcate_toolbar a#demarcate_save{background:url(../images/demarcate_sprite.png) no-repeat 0 -48px}div#demarcate_toolbar a#demarcate_cancel{background:url(../images/demarcate_sprite.png) no-repeat -24px -48px}div#demarcate_toolbar a#demarcate_up{background:url(../images/demarcate_sprite.png) no-repeat -72px -48px}div#demarcate_toolbar a#demarcate_down{background:url(../images/demarcate_sprite.png) no-repeat -96px -48px}div#demarcate_toolbar a#demarcate_help{background:url(../images/demarcate_sprite.png) no-repeat -120px -24px}div#demarcate_toolbar p{background:url(../images/demarcate_separator.png) no-repeat}div#demarcate_toolbar a.active{border:1px solid #303030;margin:4px 4px 0 0}.demarcate_editable:hover{background:#EEE;cursor:pointer}
 /* /Demarcate */
 
 body {
@@ -180,6 +185,48 @@ nav ul li a {
     font-size: 95%;
     line-height: 1.5em;
     font-family: verdana, sans-serif;
+}
+
+#blog-post-add {
+    padding: 1em;
+}
+
+#blog-post-add form, #blog-post-add div.blog-post {
+    width: 95%;
+    margin: 1em;
+}
+
+#blog-post-add form {
+    margin-bottom: 9em;
+}
+
+#blog-post-add form label {
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+#blog-post-add form input, #blog-post-add form textarea {
+    display: block;
+    color: #333333;
+    font-size: 200%;
+    background-color: #e4e4e4;
+    margin-bottom: 1em;
+    width: 100%;
+    line-height: 1em;
+    padding: 0.25em;
+    border-radius: 0.25em;
+}
+
+#blog-post-add form textarea {
+    height: 15em;
+}
+
+#blog-post-add form button {
+    width:  8em;
+    height: 3em;
+    font-size: 150%;
+    float: right;
+    margin: 0.5em;
 }
 
 #footer-container {
