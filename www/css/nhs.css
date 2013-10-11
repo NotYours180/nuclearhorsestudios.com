@@ -187,6 +187,25 @@ nav ul li a {
     font-family: verdana, sans-serif;
 }
 
+.blog-post > p > h2 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.blog-post blockquote {
+    margin: 0.5em;
+    margin-left: 1.5em;
+    padding: 0.5em;
+    background-color: #222222;
+    opacity: 0.75;
+}
+
+.blog-post ul {
+    list-style-position: inside;
+    list-style-type: disc;
+    padding: 2em;
+}
+
 #blog-post-add {
     padding: 1em;
 }
