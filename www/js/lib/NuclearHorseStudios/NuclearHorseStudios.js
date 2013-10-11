@@ -8,7 +8,8 @@ requirejs.config({
         jqueryMarkdown: 'dep/jquery.markdown',
         showdown: 'dep/showdown',
         underscore: 'dep/underscore.min',
-        BlogAddController: 'NuclearHorseStudios/BlogAddController',
+        BlogAddPostController: 'NuclearHorseStudios/BlogAddPostController',
+        BlogDeletePostController: 'NuclearHorseStudios/BlogDeletePostController',
         RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
         CreationsController: 'NuclearHorseStudios/CreationsController',
         ContactController: 'NuclearHorseStudios/ContactController',
@@ -47,7 +48,8 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute',
-    'BlogAddController',
+    'BlogAddPostController',
+    'BlogDeletePostController',
     'RecentBlogPosts',
     'CreationsController',
     'ContactController',
@@ -58,7 +60,8 @@ define([
                 angular, 
                 ngResource, 
                 ngRoute, 
-                BlogAddController,
+                BlogAddPostController,
+                BlogDeletePostController,
                 RecentBlogPosts,
                 ContactController, 
                 CreationsController) 
@@ -72,12 +75,16 @@ define([
             function($routeProvider) {
                 $routeProvider
                     .when('/blog', {
-                        templateUrl: 'partials/recent-blog-posts.html', 
+                        templateUrl: 'partials/blog/recent-posts.html', 
                         controller: RecentBlogPosts
                     })
                     .when ('/blog/add', {
-                        templateUrl: 'partials/blog-add.html',
-                        controller: BlogAddController
+                        templateUrl: 'partials/blog/add-post.html',
+                        controller: BlogAddPostController
+                    })
+                    .when('/blog/delete', {
+                        templateUrl: 'partials/blog/delete-post.html',
+                        controller: BlogDeletePostController
                     })
                     .when('/creations', {
                         templateUrl: 'partials/creations.html', 
@@ -128,9 +135,6 @@ define([
 
             return factory;
         });
-
-        
-        //angular.bootstrap(document, ['NuclearHorseStudios']);
     
         return nhs;
     }

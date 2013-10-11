@@ -38,7 +38,6 @@ define([], function() {
             $scope.status = '';
         }
 
-
         $scope.resetPost();
     }
 });
