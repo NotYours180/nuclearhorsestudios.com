@@ -48,8 +48,8 @@ table {
 }
 
 .clear {
-    float: none;
-    clear: both;
+    float: none !important;
+    clear: both !important;
 }
 
 body {
@@ -126,7 +126,7 @@ div.facia > div.margin {
     background-repeat: repeat-y;
     background-size: 100%;
     height: 100%;
-    padding: 1em;
+    padding: 2em;
     min-height: 400px;
 }
 
@@ -263,7 +263,38 @@ nav ul li a {
     font-size: 150%;
     float: right;
     margin: 0.5em;
+}
 
+#blog-admin-panel > div {
+    width: 48%;
+    float: left;
+    padding-right: 1em;
+}
+
+#blog-admin-control-panel > div {
+    display: inline-block;
+    width: 100%;
+    line-height: 3em;
+    height: 3em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+    background-image: url(../images/black_25.png);
+    vertical-align: middle;
+}
+
+#blog-admin-control-panel #control-panel-filter {
+    width: 100%;
+    font-size: 150%;
+    margin: 0;
+    margin-bottom: 1em;
+    margin-top: 0.25em;
+    border: 1px solid #333333;
+}
+
+#blog-admin-control-panel > div:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #ffe6ba;
 }
 
 #footer-container {

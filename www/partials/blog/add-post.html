@@ -8,7 +8,7 @@
         <span class="validation" ng-show="addForm.body.$error.required">Body is required.</span>
         <textarea name="body" id="post-body" ng-model="post.body" required></textarea>
 
-        <button ng-click="savePost()">Post</button>
+        <button ng-click="savePost(this)">Post</button>
         <button ng-click="resetPost()">Reset</button>
         <div class="reset">{{ status }}</div>
     </form>

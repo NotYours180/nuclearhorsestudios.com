@@ -3,32 +3,32 @@ define([], function() {
 
         var self       = this;
         var isPosting  = false;
+        
+        $scope.$on('setBlogPost', function(ev, post) {
+            console.log('on', post);
+            $scope.post = post;
+        });
 
-        this.onPostSuccess = function(data, status, headers, config) {
-            $scope.resetPost();
-            $scope.status = 'Post Successful!';
-            isPosting = false;
-        }
-
-        this.onPostError = function(data, status, headers, config) {
-            $scope.status = status + ' - ' + data.error + ":" + data.reason;
-        }
-
-        $scope.savePost = function() {
-            
-            if (!$scope.addForm.$valid) { 
-                $scope.status = "Form Invalid"; 
+        $scope.savePost = function(scope) {
+            if (!scope.addForm.$valid) { 
+                scope.status = "Form Invalid"; 
                 return; 
             }
 
             if (isPosting === true) { return; } else { isPosting = true; } 
 
-            $scope.post.date = new Date().getTime();
-            $scope.status = 'Submitting form ...';
+            scope.post.date = new Date().getTime();
+            scope.status = 'Submitting form ...';
             
-            blogData.addPost($scope.post)
-                .success(self.onPostSuccess)
-                .error(self.onPostError); 
+            blogData.addPost(scope.post)
+                .success(function(data, status, headers, config) {
+                    scope.resetPost();
+                    scope.status = 'Post Successful!';
+                    isPosting = false;
+                })
+                .error(function(data, status, headers, config) {
+                    scope.status = status + ' - ' + data.error + ":" + data.reason;
+                }); 
         }
 
         $scope.resetPost = function() {

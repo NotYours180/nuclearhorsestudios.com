@@ -10,6 +10,8 @@ requirejs.config({
         underscore: 'dep/underscore.min',
         BlogAddPostController: 'NuclearHorseStudios/BlogAddPostController',
         BlogDeletePostController: 'NuclearHorseStudios/BlogDeletePostController',
+        BlogAdminController: 'NuclearHorseStudios/BlogAdminController',
+        AdminController: 'NuclearHorseStudios/AdminController',
         RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
         CreationsController: 'NuclearHorseStudios/CreationsController',
         ContactController: 'NuclearHorseStudios/ContactController',
@@ -50,6 +52,8 @@ define([
     'ngRoute',
     'BlogAddPostController',
     'BlogDeletePostController',
+    'BlogAdminController',
+    'AdminController',
     'RecentBlogPosts',
     'CreationsController',
     'ContactController',
@@ -62,6 +66,8 @@ define([
                 ngRoute, 
                 BlogAddPostController,
                 BlogDeletePostController,
+                BlogAdminController,
+                AdminController,
                 RecentBlogPosts,
                 ContactController, 
                 CreationsController) 
@@ -78,6 +84,10 @@ define([
                         templateUrl: 'partials/blog/recent-posts.html', 
                         controller: RecentBlogPosts
                     })
+                    .when('/blog/admin', {
+                        templateUrl: 'partials/blog/admin.html',
+                        controller: BlogAdminController
+                    })
                     .when ('/blog/add', {
                         templateUrl: 'partials/blog/add-post.html',
                         controller: BlogAddPostController
@@ -85,6 +95,10 @@ define([
                     .when('/blog/delete', {
                         templateUrl: 'partials/blog/delete-post.html',
                         controller: BlogDeletePostController
+                    })
+                    .when('/admin', {
+                        templateUrl: 'partials/admin.html',
+                        controller: AdminController
                     })
                     .when('/creations', {
                         templateUrl: 'partials/creations.html', 
@@ -97,6 +111,18 @@ define([
                     .otherwise({redirectTo: '/blog'});
             }
         ]);
+
+        var controllers = {
+            RecentBlogPosts: RecentBlogPosts,
+            BlogAddPostController: BlogAddPostController,
+            BlogDeletePostController: BlogDeletePostController,
+            BlogAdminController: BlogAdminController,
+            AdminController: AdminController,
+            CreationsController: CreationsController,
+            ContactController: ContactController
+        }
+
+        nhs.controller(controllers);
 
         nhs.directive('blogPostDate', function() {
             return {
@@ -120,17 +146,25 @@ define([
 
         nhs.factory('blogData', function($http) {
             var factory = {}
-
+            var dbLocation = "http://nuclearhorsestudios.com/nuclearhorseblog/";
+            var blogPostsUri = dbLocation + "_design/blog/_view/all";
+                
             factory.getRecentPosts = function(num) {
-                var blogPostsUri = "http://nuclearhorsestudios.com/nuclearhorseblog/_design/blog/_view/all";
                 
                 return $http.get(blogPostsUri + '?limit=' + num + '&descending=true')   
             }
 
+            factory.getAllPosts = function() {
+                return $http.get(blogPostsUri + '?descending=true');
+            }
+
             factory.addPost = function(post) {
-                var dbLocation = "http://nuclearhorsestudios.com/nuclearhorseblog/";
                 
                 return $http.post(dbLocation, post)
+            }
+
+            factory.deletePost = function(post) {
+                console.log(post._id);
             }
 
             return factory;
