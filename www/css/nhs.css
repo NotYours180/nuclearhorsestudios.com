@@ -91,6 +91,13 @@ div.facia > div.margin {
     background-repeat: repeat;
 }
 
+input, textarea {
+    border: none;
+    border-radius: 0.25em;
+    font-size: 150%;
+    padding: 0.25em;
+}
+
 #left-margin {
     left: 0;
 }
@@ -269,6 +276,10 @@ nav ul li a {
     width: 48%;
     float: left;
     padding-right: 1em;
+}
+
+#blog-admin-control-panel {
+    padding-top: 1.9em;
 }
 
 #blog-admin-control-panel > div {

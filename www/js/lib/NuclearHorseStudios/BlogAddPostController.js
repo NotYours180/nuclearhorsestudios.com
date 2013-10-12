@@ -5,7 +5,6 @@ define([], function() {
         var isPosting  = false;
         
         $scope.$on('setBlogPost', function(ev, post) {
-            console.log('on', post);
             $scope.post = post;
         });
 
@@ -29,14 +28,14 @@ define([], function() {
                 .error(function(data, status, headers, config) {
                     scope.status = status + ' - ' + data.error + ":" + data.reason;
                 }); 
-        }
+        };
 
         $scope.resetPost = function() {
             $scope.post = {};
             $scope.post.date = new Date().getTime();
             $scope.post.type = "blogpost";
             $scope.status = '';
-        }
+        };
 
         $scope.resetPost();
     }
