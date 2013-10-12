@@ -12,7 +12,7 @@ requirejs.config({
         BlogAdminController: 'NuclearHorseStudios/BlogAdminController',
         AdminController: 'NuclearHorseStudios/AdminController',
         BlogDataFactory: 'NuclearHorseStudios/Factories/BlogDataFactory',
-        MarkDownFilter: 'NuclearHorseStudios/Filters/MarkDownFilter',
+        MarkDownFilter: 'NuclearHorseStudios/Filters/MarkdownFilter',
         BlogPostDateFilter: 'NuclearHorseStudios/Filters/BlogPostDateFilter',
         RouteProvider: 'NuclearHorseStudios/RouteProvider',
         RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
