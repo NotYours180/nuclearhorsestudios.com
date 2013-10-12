@@ -1,4 +1,4 @@
-define(['angular', 'ngResource'], function(angular, ngResource) {
+define(['angular'], function(angular, ngResource) {
     return function ($scope, blogData) {
         
         $scope.posts = [];

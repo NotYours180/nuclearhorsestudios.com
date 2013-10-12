@@ -20,7 +20,7 @@ requirejs.config({
         RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
         CreationsController: 'NuclearHorseStudios/CreationsController',
         ContactController: 'NuclearHorseStudios/ContactController',
-        NuclearHorseStudios: 'NuclearHorseStudios/NuclearHorseStudios'
+        NHS: 'NuclearHorseStudios/NuclearHorseStudios'
     },
 
     shim: {
@@ -52,4 +52,4 @@ requirejs.config({
     }
 });
 
-require(['NuclearHorseStudios'], function() {});
+require(['NHS'], function() {});
