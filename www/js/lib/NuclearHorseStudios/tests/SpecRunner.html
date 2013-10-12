@@ -19,9 +19,8 @@
             ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
             ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
             underscore: 'dep/underscore.min',
-            BlogController: 'NuclearHorseStudios/BlogController',
-            CreationsController: 'NuclearHorseStudios/CreationsController',
-            ContactController: 'NuclearHorseStudios/ContactController',
+            DbTypeFactory: 'DbTypeFactory',
+            DbTypeFactorySpec: 'NuclearHorseStudios/tests/spec/DbTypeFactorySpec',
             jasmine: 'NuclearHorseStudios/tests/lib/jasmine-1.3.0/jasmine',
             jasmineHtml: 'NuclearHorseStudios/tests/lib/jasmine-1.3.0/jasmine-html',
             jasmineFixture: 'NuclearHorseStudios/tests/lib/jasmine-1.3.0/jasmine-fixture',
@@ -69,7 +68,7 @@
 
 
   <script type="text/javascript">
-    require(['BlogController', 'jasmine', 'jasmineHtml', 'BlogControllerSpec'], function(BlogController) {
+    require(['DbTypeFactory', 'jasmine', 'jasmineHtml', 'DbTypeFactorySpec'], function(DbTypeFactory) {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
 

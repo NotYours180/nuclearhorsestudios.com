@@ -93,9 +93,13 @@ div.facia > div.margin {
 
 input, textarea {
     border: none;
-    border-radius: 0.25em;
+    color: #333333;
     font-size: 150%;
+    background-color: #e4e4e4;
+    margin-bottom: 1em;
+    line-height: 1em;
     padding: 0.25em;
+    border-radius: 0.25em;
 }
 
 #left-margin {
@@ -250,14 +254,7 @@ nav ul li a {
 
 #blog-post-add form input, #blog-post-add form textarea {
     display: block;
-    color: #333333;
-    font-size: 150%;
-    background-color: #e4e4e4;
-    margin-bottom: 1em;
     width: 100%;
-    line-height: 1em;
-    padding: 0.25em;
-    border-radius: 0.25em;
 }
 
 #blog-post-add form textarea {
@@ -265,11 +262,17 @@ nav ul li a {
 }
 
 #blog-post-add form button {
-    width:  8em;
-    height: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-radius: 0.25em;
     font-size: 150%;
     float: right;
+    background-color: #e4e4e4;
     margin: 0.5em;
+    margin-left: 1em;
+    margin-right: 0;
 }
 
 #blog-admin-panel > div {

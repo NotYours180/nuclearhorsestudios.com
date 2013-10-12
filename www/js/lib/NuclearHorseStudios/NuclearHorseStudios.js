@@ -3,58 +3,43 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute',
-    'BlogAddPostController',
-    'BlogDeletePostController',
-    'BlogAdminController',
-    'AdminController',
+    'Controllers',
+    'DbTypeFactory',
     'BlogDataFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
     'RouteProvider',
-    'RecentBlogPosts',
-    'CreationsController',
-    'ContactController',
     'underscore',
     'showdown'], 
     
-    function(   $, 
-                angular, 
-                ngResource, 
-                ngRoute, 
-                BlogAddPostController,
-                BlogDeletePostController,
-                BlogAdminController,
-                AdminController,
-                BlogDataFactory,
-                MarkDownFilter,
-                BlogPostDateFilter,
-                RouteProvider,
-                RecentBlogPosts,
-                ContactController, 
-                CreationsController) 
+    function(   
+        $, 
+        angular, 
+        ngResource, 
+        ngRoute, 
+        Controllers,
+        DbTypeFactory,
+        BlogDataFactory,
+        MarkDownFilter,
+        BlogPostDateFilter,
+        RouteProvider) 
     {
-
         var deps = ['ngResource', 'ngRoute'];
         var nhs  = angular.module('NuclearHorseStudios', deps);
 
         nhs.config([ '$routeProvider', RouteProvider ]);
 
-        var controllers = {
-            RecentBlogPosts: RecentBlogPosts,
-            BlogAddPostController: BlogAddPostController,
-            BlogDeletePostController: BlogDeletePostController,
-            BlogAdminController: BlogAdminController,
-            AdminController: AdminController,
-            CreationsController: CreationsController,
-            ContactController: ContactController
-        }
-
-        nhs.controller(controllers);
+        nhs.controller(Controllers);
 
         nhs.filter('markdown', ['$sce', MarkDownFilter]);
         nhs.filter('blogPostDate', BlogPostDateFilter);
 
-        nhs.factory('blogData', BlogDataFactory);
+        var blogDataFactory = DbTypeFactory('blogpost', 
+                                            'http://nuclearhorsestudios.com', 
+                                            'nuclearhorseblog',
+                                            '_design/blog');
+
+        nhs.factory('blogData', blogDataFactory);
     
         return nhs;
     }

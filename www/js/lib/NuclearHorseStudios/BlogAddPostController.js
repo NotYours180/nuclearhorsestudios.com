@@ -19,7 +19,7 @@ define([], function() {
             scope.post.date = new Date().getTime();
             scope.status = 'Submitting form ...';
             
-            blogData.addPost(scope.post)
+            blogData.add(scope.post)
                 .success(function(data, status, headers, config) {
                     scope.resetPost();
                     scope.status = 'Post Successful!';

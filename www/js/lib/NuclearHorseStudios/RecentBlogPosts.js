@@ -3,7 +3,7 @@ define(['angular', 'ngResource'], function(angular, ngResource) {
         
         $scope.posts = [];
 
-        blogData.getRecentPosts(5)
+        blogData.getRecent(5)
             .success(function(data, status, headers, config) {
                 $scope.posts = _(data.rows).map(function(row) {
                     return row.value;
