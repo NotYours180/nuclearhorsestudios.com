@@ -1,26 +1,16 @@
 requirejs.config({
-    baseUrl: '/js/lib',
+    baseUrl: '/js/lib/NuclearHorseStudios',
     paths: {
         jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
         angular: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min',
         ngResource: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min',
         ngRoute: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min',
-        Controllers: 'NuclearHorseStudios/Controllers',
-        showdown: 'dep/showdown',
-        underscore: 'dep/underscore.min',
-        BlogAddPostController: 'NuclearHorseStudios/BlogAddPostController',
-        BlogDeletePostController: 'NuclearHorseStudios/BlogDeletePostController',
-        BlogAdminController: 'NuclearHorseStudios/BlogAdminController',
-        AdminController: 'NuclearHorseStudios/AdminController',
-        BlogDataFactory: 'NuclearHorseStudios/Factories/BlogDataFactory',
-        MarkDownFilter: 'NuclearHorseStudios/Filters/MarkdownFilter',
-        BlogPostDateFilter: 'NuclearHorseStudios/Filters/BlogPostDateFilter',
-        RouteProvider: 'NuclearHorseStudios/RouteProvider',
-        DbTypeFactory: 'DbTypeFactory',
-        RecentBlogPosts: 'NuclearHorseStudios/RecentBlogPosts',
-        CreationsController: 'NuclearHorseStudios/CreationsController',
-        ContactController: 'NuclearHorseStudios/ContactController',
-        NHS: 'NuclearHorseStudios/NuclearHorseStudios'
+        showdown: '../dep/showdown',
+        underscore: '../dep/underscore.min',
+        BlogDataFactory: 'Factories/BlogDataFactory',
+        MarkDownFilter: 'Filters/MarkdownFilter',
+        BlogPostDateFilter: 'Filters/BlogPostDateFilter',
+        DbTypeFactory: '../DbTypeFactory',
     },
 
     shim: {
@@ -45,11 +35,11 @@ requirejs.config({
     },
     map: {
         '*': { 
-            jquery: 'dep/jqueryPrivate',
+            jquery: '../dep/jqueryPrivate',
         },
 
-        'dep/jqueryPrivate':  { jquery:  'jquery'  }
+        '../dep/jqueryPrivate':  { jquery:  'jquery'  }
     }
 });
 
-require(['NHS'], function() {});
+require(['NuclearHorseStudios'], function() {});

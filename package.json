@@ -1,0 +1,23 @@
+{
+  "name": "nuclearhorsestudios.com",
+  "version": "0.0.0",
+  "description": "NuclearHorseStudios website",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-requirejs": "~0.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlasky/nuclearhorsestudios.com.git"
+  },
+  "author": "Michael Lasky",
+  "license": "None",
+  "gitHead": "a4735df137cb12548ed79cfd6ab23e6c7f61e02b"
+}

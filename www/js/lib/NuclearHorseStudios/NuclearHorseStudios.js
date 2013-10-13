@@ -4,7 +4,6 @@ define([
     'ngRoute',
     'Controllers',
     'DbTypeFactory',
-    'BlogDataFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
     'RouteProvider',
@@ -17,21 +16,20 @@ define([
         ngRoute, 
         Controllers,
         DbTypeFactory,
-        BlogDataFactory,
         MarkDownFilter,
         BlogPostDateFilter,
-        RouteProvider) 
-    {
+        RouteProvider) {
+        
         var blogDataFactory = DbTypeFactory('blogpost', 
                                             'http://nuclearhorsestudios.com', 
                                             'nuclearhorseblog',
                                             '_design/blog');
         
         return angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute'])
-                    .controller(Controllers)
-                    .filter('markdown', ['$sce', MarkDownFilter])
-                    .filter('blogPostDate', BlogPostDateFilter)
-                    .factory('blogData', blogDataFactory)
-                    .config([ '$routeProvider', RouteProvider ]);
+                      .controller(Controllers)
+                      .filter('markdown', ['$sce', MarkDownFilter])
+                      .filter('blogPostDate', BlogPostDateFilter)
+                      .factory('blogData', blogDataFactory)
+                      .config([ '$routeProvider', RouteProvider ]);
     }
 );

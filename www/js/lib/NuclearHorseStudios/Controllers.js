@@ -14,8 +14,8 @@ define([
         BlogAdminController,
         AdminController,
         CreationsController,
-        ContactController) 
-    {
+        ContactController) {
+        
         return {
             RecentBlogPosts: RecentBlogPosts,
             BlogAddPostController: BlogAddPostController,
