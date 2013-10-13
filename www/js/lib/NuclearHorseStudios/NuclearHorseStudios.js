@@ -18,10 +18,10 @@ define([
         DbTypeFactory,
         MarkDownFilter,
         BlogPostDateFilter,
-        RouteProvider) {
-
+        RouteProvider) 
+    {
         var blogDataFactory = DbTypeFactory('blogpost', 
-                                            'http://nuclearhorsestudios.com', 
+                                            '', 
                                             'nuclearhorseblog',
                                             '_design/blog');
         
