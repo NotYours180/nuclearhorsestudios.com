@@ -1,5 +1,1 @@
-define([], function() {
-    return function ($scope) {
-        $scope.hello = 'hi';
-    }
-});
+define([],function(){return function(t){t.hello="hi"}});

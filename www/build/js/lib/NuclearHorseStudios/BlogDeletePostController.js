@@ -1,2 +1,0 @@
-define(["angular"],function(){return function(t,n){t.posts=[],n.getAllPosts().success(function(n){t.posts=_(n.rows).map(function(t){return t.value})}).error(function(n,e){t.status=e})}});
-//# sourceMappingURL=BlogDeletePostController.js.map

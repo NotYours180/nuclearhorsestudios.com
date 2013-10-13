@@ -1,7 +1,1 @@
-define([], function() {
-    return function($scope) {
-        $scope.setPost = function(post) {
-            $scope.$broadcast('setBlogPost', post);
-        };
-    }
-});
+define([],function(){return function(t){t.setPost=function(n){t.$broadcast("setBlogPost",n)}}});

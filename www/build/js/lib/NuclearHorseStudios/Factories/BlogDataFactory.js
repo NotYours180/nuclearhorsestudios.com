@@ -1,2 +1,0 @@
-define([],function(){return function(t){var n={},e="http://nuclearhorsestudios.com/nuclearhorseblog/",o=e+"_design/blog/_view/all";return n.getRecentPosts=function(n){return t.get(o+"?limit="+n+"&descending=true")},n.getAllPosts=function(){return t.get(o+"?descending=true")},n.addPost=function(n){return t.post(e,n)},n.deletePost=function(t){console.log(t._id)},n}});
-//# sourceMappingURL=BlogDataFactory.js.map

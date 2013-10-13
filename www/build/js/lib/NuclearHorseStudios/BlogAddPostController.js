@@ -1,2 +1,0 @@
-define([],function(){return function(t,n){var e=!1;t.$on("setBlogPost",function(n,e){t.post=e}),t.savePost=function(t){return t.addForm.$valid?(e!==!0&&(e=!0,t.post.date=(new Date).getTime(),t.status="Submitting form ...",n.add(t.post).success(function(){t.resetPost(),t.status="Post Successful!",e=!1}).error(function(n,e){t.status=e+" - "+n.error+":"+n.reason})),void 0):(t.status="Form Invalid",void 0)},t.resetPost=function(){t.post={},t.post.date=(new Date).getTime(),t.post.type="blogpost",t.status=""},t.resetPost()}});
-//# sourceMappingURL=BlogAddPostController.js.map

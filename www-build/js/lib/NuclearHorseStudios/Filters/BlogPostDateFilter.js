@@ -1,8 +1,1 @@
-define([], function() {
-    return function() {
-        return function(input) {
-            var date = new Date(input);
-            return date.toDateString() + ' - ' + date.toLocaleTimeString();
-        }
-    }
-});
+define([],function(){return function(){return function(t){var e=new Date(t);return e.toDateString()+" - "+e.toLocaleTimeString()}}});

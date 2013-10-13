@@ -1,2 +1,0 @@
-define(["underscore"],function(){return function(e,n,t,r){return function(u){var i={},c=n+"/"+t,o=c+"/"+r+"/_view/"+e;return i.getRecent=function(e){var n="?limit="+e+"&descending=true";return u.get(o+n)},i.getAll=function(){var e="?descending=true";return u.get(o+e)},i.add=function(e){return u.post(c,e)},i.delete=function(e){console.log(e)},i.getPage=function(e,n){var t=(e-1)*n,r="?skip="+t+"&limit="+n+"&descending=true";return u.get(o+r)},i}}});
-//# sourceMappingURL=DbTypeFactory.js.map

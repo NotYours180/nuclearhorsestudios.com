@@ -1,2 +1,0 @@
-define(["angular"],function(){return function(n,e){n.posts=[],e.getAll().success(function(e){n.posts=_(e.rows).map(function(n){return n.value})}).error(function(e,t){n.status=t})}});
-//# sourceMappingURL=AdminController.js.map

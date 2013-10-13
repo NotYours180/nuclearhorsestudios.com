@@ -1,12 +1,1 @@
-define([], function() {
-    return function ($sce) {
-        var trusted = {};
-        return function(input) {
-            var converter = new Showdown.converter();
-            // trusted is a hack to get around current angular infinite 
-            // digest loop problem.
-            // https://github.com/angular/angular.js/issues/3932
-            return trusted[input] || (trusted[input] = $sce.trustAsHtml(converter.makeHtml(input || ''))); 
-        }
-    }
-});
+define([],function(){return function(t){var e={};return function(n){var o=new Showdown.converter;return e[n]||(e[n]=t.trustAsHtml(o.makeHtml(n||"")))}}});

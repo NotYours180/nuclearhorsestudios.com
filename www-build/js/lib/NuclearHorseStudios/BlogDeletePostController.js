@@ -1,15 +1,1 @@
-define([], function(angular) {
-    return function($scope, blogData) {
-        $scope.posts = [];
-
-        blogData.getAllPosts()
-            .success(function(data, status, headers, config) {
-                $scope.posts = _(data.rows).map(function(row) {
-                    return row.value;
-                });
-            })
-            .error(function(data, status, headers, config) {
-                $scope.status = status;
-            });
-    }
-});
+define([],function(){return function(t,n){t.posts=[],n.getAllPosts().success(function(n){t.posts=_(n.rows).map(function(t){return t.value})}).error(function(n,e){t.status=e})}});
