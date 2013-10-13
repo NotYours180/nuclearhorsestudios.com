@@ -1,1 +1,2 @@
-define(["angular"],function(e){return function(e,t){e.posts=[],t.getAll().success(function(t,n,r,i){e.posts=_(t.rows).map(function(e){return e.value})}).error(function(t,n,r,i){e.status=n})}});
+define(["angular"],function(){return function(n,e){n.posts=[],e.getAll().success(function(e){n.posts=_(e.rows).map(function(n){return n.value})}).error(function(e,t){n.status=t})}});
+//# sourceMappingURL=AdminController.js.map

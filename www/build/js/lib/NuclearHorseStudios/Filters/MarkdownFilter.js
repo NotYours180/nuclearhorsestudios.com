@@ -1,1 +1,2 @@
-define([],function(){return function(e){var t={};return function(n){var r=new Showdown.converter;return t[n]||(t[n]=e.trustAsHtml(r.makeHtml(n||"")))}}});
+define([],function(){return function(t){var n={};return function(e){var o=new Showdown.converter;return n[e]||(n[e]=t.trustAsHtml(o.makeHtml(e||"")))}}});
+//# sourceMappingURL=MarkdownFilter.js.map

@@ -1,1 +1,2 @@
-define([],function(){return function(e){e.setPost=function(t){e.$broadcast("setBlogPost",t)}}});
+define([],function(){return function(t){t.setPost=function(n){t.$broadcast("setBlogPost",n)}}});
+//# sourceMappingURL=BlogAdminController.js.map

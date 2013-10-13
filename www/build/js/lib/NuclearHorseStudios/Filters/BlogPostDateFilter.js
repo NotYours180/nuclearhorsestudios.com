@@ -1,1 +1,2 @@
-define([],function(){return function(){return function(e){var t=new Date(e);return t.toDateString()+" - "+t.toLocaleTimeString()}}});
+define([],function(){return function(){return function(t){var n=new Date(t);return n.toDateString()+" - "+n.toLocaleTimeString()}}});
+//# sourceMappingURL=BlogPostDateFilter.js.map

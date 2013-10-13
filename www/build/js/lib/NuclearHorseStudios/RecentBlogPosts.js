@@ -1,1 +1,2 @@
-define(["angular"],function(e,t){return function(e,t){e.posts=[],t.getRecent(5).success(function(t,n,r,i){e.posts=_(t.rows).map(function(e){return e.value})}).error(function(t,n,r,i){e.status=n})}});
+define(["angular"],function(){return function(e,t){e.posts=[],t.getRecent(5).success(function(t){e.posts=_(t.rows).map(function(e){return e.value})}).error(function(t,n){e.status=n})}});
+//# sourceMappingURL=RecentBlogPosts.js.map

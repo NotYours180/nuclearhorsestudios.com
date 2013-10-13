@@ -1,1 +1,2 @@
-define(["RecentBlogPosts","BlogAddPostController","BlogDeletePostController","BlogAdminController","AdminController","CreationsController","ContactController"],function(e,t,n,r,i,s,o){return{RecentBlogPosts:e,BlogAddPostController:t,BlogDeletePostController:n,BlogAdminController:r,AdminController:i,CreationsController:s,ContactController:o}});
+define(["RecentBlogPosts","BlogAddPostController","BlogDeletePostController","BlogAdminController","AdminController","CreationsController","ContactController"],function(t,n,o,e,r,s,u){return{RecentBlogPosts:t,BlogAddPostController:n,BlogDeletePostController:o,BlogAdminController:e,AdminController:r,CreationsController:s,ContactController:u}});
+//# sourceMappingURL=Controllers.js.map

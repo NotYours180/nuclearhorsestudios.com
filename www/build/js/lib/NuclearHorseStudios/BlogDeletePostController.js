@@ -1,1 +1,2 @@
-define(["angular"],function(e){return function(e,t){e.posts=[],t.getAllPosts().success(function(t,n,r,i){e.posts=_(t.rows).map(function(e){return e.value})}).error(function(t,n,r,i){e.status=n})}});
+define(["angular"],function(){return function(t,n){t.posts=[],n.getAllPosts().success(function(n){t.posts=_(n.rows).map(function(t){return t.value})}).error(function(n,e){t.status=e})}});
+//# sourceMappingURL=BlogDeletePostController.js.map

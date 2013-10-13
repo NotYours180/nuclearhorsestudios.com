@@ -9,7 +9,10 @@ module.exports = function(grunt) {
           appDir: 'www',
           baseUrl: "js/lib/NuclearHorseStudios",
           mainConfigFile: "www/js/lib/NuclearHorseStudios/Init.js",
-          dir: "www/build"
+          dir: "www/build",
+          generateSourceMaps: true,
+          preserveLicenseComments: false,
+          optimize: 'uglify2'
         }
       }
     },

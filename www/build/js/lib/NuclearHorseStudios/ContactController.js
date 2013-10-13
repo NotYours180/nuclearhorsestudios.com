@@ -1,1 +1,2 @@
-define([],function(){return function(e){e.hello="hi"}});
+define([],function(){return function(t){t.hello="hi"}});
+//# sourceMappingURL=ContactController.js.map
