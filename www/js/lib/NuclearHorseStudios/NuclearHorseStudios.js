@@ -2,15 +2,15 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute',
-    'js/lib/NuclearHorseStudios/Controllers',
+    'Controllers',
     'DbTypeFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
-    'js/lib/NuclearHorseStudios/RouteProvider',
+    'RouteProvider',
     'underscore',
     'showdown'], 
     
-    function(   
+    function(
         angular, 
         ngResource, 
         ngRoute, 

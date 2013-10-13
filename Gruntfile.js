@@ -109,54 +109,15 @@ module.exports = function(grunt)
                     uglify2: {
                         mangle:false
                     },
+                    mainConfigFile: 'www/js/lib/RequireConfig.js',
                     preserveLicenseComments: false,
                     baseUrl: "<%= tempDir %>",
                     dir:'<%= distDir %>',
-                    paths: {
-                      jquery:              'js/lib/dep/jquery',
-                      angular:             'js/lib/dep/angular',
-                      ngResource:          'js/lib/dep/angular-resource',
-                      ngRoute:             'js/lib/dep/angular-route',
-                      showdown:            'js/lib/dep/showdown',
-                      underscore:          'js/lib/dep/underscore.min',
-                      BlogDataFactory:     'js/lib/NuclearHorseStudios/Factories/BlogDataFactory',
-                      MarkDownFilter:      'js/lib/NuclearHorseStudios/Filters/MarkdownFilter',
-                      BlogPostDateFilter:  'js/lib/NuclearHorseStudios/Filters/BlogPostDateFilter',
-                      DbTypeFactory:       'js/lib/DbTypeFactory',
-                      NuclearHorseStudios: 'js/lib/NuclearHorseStudios/NuclearHorseStudios'
-                    },
-                    shim: {
-                      angular: { 
-                          deps: ['jquery'],
-                          exports: 'angular'
-                      },
-                      ngResource: {
-                          deps: ['angular'],
-                          exports: 'ngResource'
-                      },
-                      ngRoute: {
-                          deps: ['angular'],
-                          exports: 'ngRoute',
-                      },
-                      showdown: {
-                          exports: 'Showdown'
-                      },
-                      underscore: {
-                          exports: '_'
-                      }
-                  },
-                  map: {
-                      '*': { 
-                          jquery: 'js/lib/dep/jqueryPrivate',
-                      },
-
-                      'js/lib/dep/jqueryPrivate':  { jquery:  'jquery'  }
-                  },
-                  modules: [
+                    modules: [
                       {
                           name: 'NuclearHorseStudios'
                       }
-                  ]
+                    ]
                 }
             }
         },
