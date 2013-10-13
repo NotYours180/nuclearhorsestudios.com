@@ -107,7 +107,7 @@ module.exports = function(grunt)
                     generateSourceMaps:false,
                     optimize: '<%= requireJSOptimise %>',
                     uglify2: {
-                        mangle:true
+                        mangle:false
                     },
                     preserveLicenseComments: false,
                     baseUrl: "<%= tempDir %>",

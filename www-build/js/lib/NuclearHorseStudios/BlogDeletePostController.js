@@ -1,1 +1,1 @@
-define([],function(){return function(t,n){t.posts=[],n.getAllPosts().success(function(n){t.posts=_(n.rows).map(function(t){return t.value})}).error(function(n,e){t.status=e})}});
+define([],function(){return function($scope,blogData){$scope.posts=[],blogData.getAllPosts().success(function(data){$scope.posts=_(data.rows).map(function(row){return row.value})}).error(function(data,status){$scope.status=status})}});
