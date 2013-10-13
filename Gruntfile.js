@@ -1,26 +1,220 @@
-module.exports = function(grunt) {
-  grunt.initConfig({
-    requirejs: {
-      compile: {
-        options: {
-	        modules: [{
-            name: 'NuclearHorseStudios'
-          }],
-          appDir: 'www',
-          baseUrl: "js/lib/NuclearHorseStudios",
-          mainConfigFile: "www/js/lib/NuclearHorseStudios/Init.js",
-          dir: "www/build",
-          generateSourceMaps: true,
-          preserveLicenseComments: false,
-          optimize: 'uglify2'
+module.exports = function(grunt)
+{
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-replace');
+    grunt.loadNpmTasks('grunt-ngmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+
+    grunt.initConfig
+    ({
+        srcDir: 'www',
+        distDir: 'www-build',
+        tempDir: 'temp',
+        less:{
+            dist:{
+                options:{
+                    compress: true
+                },
+                expand:true,
+                cwd:'<%= srcDir %>',
+                src: ['app/**/*.styles.less'],
+                dest: '<%= distDir %>',
+                ext:'.styles.css'
+            }
+        },
+        cssmin: {
+            dist: {
+                src: '<%= srcDir %>/css/nhs.css',
+                dest: '<%= distDir %>/css/nhs.css'
+            }
+        },
+        htmlmin:{
+            dist: {
+                options:{
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                expand:true,
+                cwd:'<%= srcDir %>',
+                src: ['**/*.html'],
+                dest: '<%= distDir %>'
+            }
+        },
+        pngOptimizationLevel: 7,
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: '<%= pngOptimizationLevel %>'
+                },
+                expand:true,
+                cwd:'<%= srcDir %>',
+                src: ['**/*.png'],
+                dest: '<%= distDir %>'
+            },
+            jpg: {
+                expand:true,
+                cwd:'<%= srcDir %>',
+                src: ['**/*.jpg'],
+                dest: '<%= distDir %>'
+            }
+        },
+        copy: {
+            scripts_to_temp: {
+                expand:true,
+                cwd:'<%= srcDir %>',
+                src: ['**/*.js'],
+                dest: '<%= tempDir %>'
+            }
+        },
+        clean: {
+            on_start: ['<%= distDir %>'],
+            on_finish: ['<%= tempDir %>']
+        },
+        ngmin: {
+            scripts: {
+                expand:true,
+                cwd:'<%= tempDir %>',
+                src: ['www/**/*.js'],
+                dest: '<%= tempDir %>'
+            }
+        },
+        replace: {
+            dist_build_time: {
+                options:{
+                    variables:{
+                        "build-time": (new Date()).getTime().toString()
+                    },
+                    prefix:'@@'
+                },
+                expand:true,
+                cwd:'<%= distDir %>',
+                src: ['**/*.*'],
+                dest: '<%= distDir %>'
+            }
+        },
+        requireJSOptimise: 'uglify2',
+        requirejs: {
+            compile: {
+                options: {
+                    keepBuildDir: true,
+                    generateSourceMaps:false,
+                    optimize: '<%= requireJSOptimise %>',
+                    uglify2: {
+                        mangle:true
+                    },
+                    preserveLicenseComments: false,
+                    baseUrl: "<%= tempDir %>",
+                    dir:'<%= distDir %>',
+                    paths: {
+                      jquery:              'js/lib/dep/jquery',
+                      angular:             'js/lib/dep/angular',
+                      ngResource:          'js/lib/dep/angular-resource',
+                      ngRoute:             'js/lib/dep/angular-route',
+                      showdown:            'js/lib/dep/showdown',
+                      underscore:          'js/lib/dep/underscore.min',
+                      BlogDataFactory:     'js/lib/NuclearHorseStudios/Factories/BlogDataFactory',
+                      MarkDownFilter:      'js/lib/NuclearHorseStudios/Filters/MarkdownFilter',
+                      BlogPostDateFilter:  'js/lib/NuclearHorseStudios/Filters/BlogPostDateFilter',
+                      DbTypeFactory:       'js/lib/DbTypeFactory',
+                      NuclearHorseStudios: 'js/lib/NuclearHorseStudios/NuclearHorseStudios'
+                    },
+                    shim: {
+                      angular: { 
+                          deps: ['jquery'],
+                          exports: 'angular'
+                      },
+                      ngResource: {
+                          deps: ['angular'],
+                          exports: 'ngResource'
+                      },
+                      ngRoute: {
+                          deps: ['angular'],
+                          exports: 'ngRoute',
+                      },
+                      showdown: {
+                          exports: 'Showdown'
+                      },
+                      underscore: {
+                          exports: '_'
+                      }
+                  },
+                  map: {
+                      '*': { 
+                          jquery: 'js/lib/dep/jqueryPrivate',
+                      },
+
+                      'js/lib/dep/jqueryPrivate':  { jquery:  'jquery'  }
+                  },
+                  modules: [
+                      {
+                          name: 'NuclearHorseStudios'
+                      }
+                  ]
+                }
+            }
+        },
+        watch: {
+            gruntFile: {
+                files: ['Gruntfile.js'],
+                tasks: ['watch'],
+                options: {
+                    nospawn: false
+                }
+            },
+            less: {
+                files: ['<%= srcDir %>/**/*.less'],
+                tasks: ['less'],
+                options: {
+                    nospawn: false
+                }
+            },
+            scripts: {
+                files: ['<%= srcDir %>/**/*.js'],
+                tasks: ['setup-dev','scripts','replace:dist_build_time'],
+                options: {
+                    nospawn: false
+                }
+            },
+            html: {
+                files: ['<%= srcDir %>/**/*.html'],
+                tasks: ['htmlmin','replace:dist_build_time'],
+                options: {
+                    nospawn: false
+                }
+            },
+            png_images: {
+                files: ['<%= srcDir %>/**/*.png'],
+                tasks: ['setup-dev','imagemin:png'],
+                options: {
+                    nospawn: false
+                }
+            },
+            jpg_images: {
+                files: ['<%= srcDir %>/**/*.png'],
+                tasks: ['imagemin:jpg'],
+                options: {
+                    nospawn: false
+                }
+            }
         }
-      }
-    },
-    pkg: grunt.file.readJSON('package.json')
-  });
+    });
 
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.registerTask('setup-dev', 'Development related settings', function()
+    {
+        grunt.config.set('pngOptimizationLevel', 0);
+        grunt.config.set('requireJSOptimise', 'none');
+    });
 
-  // Default task(s).
-  grunt.registerTask('default', ['requirejs']);
+    grunt.registerTask('scripts', ['copy:scripts_to_temp','ngmin','requirejs']);
+    grunt.registerTask('styles' , ['cssmin','less']);
+    grunt.registerTask('images' , ['imagemin']);
+    grunt.registerTask('default', ['clean:on_start','scripts','styles','htmlmin','images','replace:dist_build_time','clean:on_finish']);
+    grunt.registerTask('dev'    , ['setup-dev','default']);
 };

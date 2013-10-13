@@ -2,11 +2,11 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute',
-    'Controllers',
+    'js/lib/NuclearHorseStudios/Controllers',
     'DbTypeFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
-    'RouteProvider',
+    'js/lib/NuclearHorseStudios/RouteProvider',
     'underscore',
     'showdown'], 
     
@@ -19,7 +19,7 @@ define([
         MarkDownFilter,
         BlogPostDateFilter,
         RouteProvider) {
-        
+
         var blogDataFactory = DbTypeFactory('blogpost', 
                                             'http://nuclearhorsestudios.com', 
                                             'nuclearhorseblog',
