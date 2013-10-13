@@ -1,0 +1,1 @@
+define(["angular"],function(e){return function(e,t){e.posts=[],t.getAllPosts().success(function(t,n,r,i){e.posts=_(t.rows).map(function(e){return e.value})}).error(function(t,n,r,i){e.status=n})}});

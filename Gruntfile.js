@@ -3,10 +3,13 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: {
-	        name: 'NuclearHorseStudios',
-          baseUrl: "www/js/lib/NuclearHorseStudios",
+	        modules: [{
+            name: 'NuclearHorseStudios'
+          }],
+          appDir: 'www',
+          baseUrl: "js/lib/NuclearHorseStudios",
           mainConfigFile: "www/js/lib/NuclearHorseStudios/Init.js",
-          out: "www/js/lib/NuclearHorseStudios/Init-production.js"
+          dir: "www/build"
         }
       }
     },

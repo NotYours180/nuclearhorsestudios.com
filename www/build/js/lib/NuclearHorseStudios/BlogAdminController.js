@@ -1,0 +1,1 @@
+define([],function(){return function(e){e.setPost=function(t){e.$broadcast("setBlogPost",t)}}});

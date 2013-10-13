@@ -1,0 +1,281 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.clear {
+    float: none !important;
+    clear: both !important;
+}
+body {
+    position: absolute;
+    height: auto;
+    min-width: 720px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    color: #e3e3e3;
+    background-color: #1c1714;
+    font-family: 'Oswald', sans-serif;
+}
+h1 {
+    text-align: right;
+    font-size: 3.5em;
+    color: #ffe6ba;
+    box-shadow: 0px 0px 20px black;
+    text-shadow: #ff7800 0em 0em 0.3em;
+    height: 1.2em;
+    padding-top: 0.15em;
+    padding-right: 0.25em;
+    background-image: url(../images/black_25.png);
+}
+div.facia > div.margin {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    height: 100%;
+    width: 6.8%;
+    box-shadow: 0px 0px 20px black;
+    background-color: #1c1714;
+    background-image: url(../images/backgroundImage.png);
+    background-repeat: repeat;
+}
+input, textarea {
+    border: none;
+    color: #333333;
+    font-size: 150%;
+    background-color: #e4e4e4;
+    margin-bottom: 1em;
+    line-height: 1em;
+    padding: 0.25em;
+    border-radius: 0.25em;
+}
+#left-margin {
+    left: 0;
+}
+#right-margin {
+    right: 0;
+}
+#upper-view {
+    position: fixed;
+    left: 6.5%;
+    right: 6.5%;
+    height: 45%;
+    min-height: 175px;
+    min-width: 640px;
+    background-image: url(../images/upperBackground1.png);
+    background-size: 100% 100%;
+}
+#content-container {
+    background-image: url(../images/contentBackground.png);
+    position: absolute;
+    z-index: 20;
+    left: 6.5%;
+    right: 6.5%;
+    top: 30% !important;
+    margin-left: auto;
+    margin-right: auto;
+    top: -5.5em;
+}
+#content-view {
+    background-repeat: repeat-y;
+    background-size: 100%;
+    height: 100%;
+    padding: 2em;
+    min-height: 400px;
+}
+nav ul {
+    z-index: 30;
+    background-image: url(../images/navBackground.png);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    box-shadow: 0px 0px 20px black;
+}
+nav ul li {
+    display: inline;
+    padding: 1em;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #ffe6ba;
+    
+    font-size: 2.2em;
+    font-weight: 100;
+}
+.blog-post {
+    margin: 0.5em;
+    background-image: url(../images/black_25.png);
+    border-radius: 1em;
+    padding: 1em;
+    padding-bottom: 3em;
+    margin-bottom: 2em;
+}
+.blog-post h2 {
+    padding: 0.25em;
+    padding-bottom: 0;
+    color: #ffe6ba;
+    font-size: 2.5em;
+}
+.blog-post span.blog-date {
+    display: inline-block;
+    padding-left: 1.5em;
+    padding-top: 1.5em;
+    font-size: 70%;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #e3e3e3;
+    font-family: arial, sans-serif;
+}
+.blog-post p {
+    padding: 0.25em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+    font-weight: normal;
+    font-size: 105%;
+    line-height: 1.8em;
+    font-family: verdana, sans-serif;
+}
+.blog-post > p > h2 {
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 1em;
+    margin-top: 1em;
+}
+.blog-post blockquote {
+    margin: 0.5em;
+    margin-left: 1.5em;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    background-color: #222222;
+    opacity: 0.75;
+}
+.blog-post blockquote em {
+    font-size: 250%;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1em;
+    margin-top: 1.5em;
+    color: #ffe6ba;
+}
+.blog-post ul {
+    list-style-position: inside;
+    list-style-type: disc;
+    padding: 2em;
+}
+#blog-post-add {
+    padding: 1em;
+}
+#blog-post-add form, #blog-post-add div.blog-post {
+    width: 95%;
+    margin: 1em;
+}
+#blog-post-add form {
+    margin-bottom: 9em;
+}
+#blog-post-add form label {
+    display: inline-block;
+    margin-bottom: 0.25em;
+}
+#blog-post-add form span.validation {
+    float: right;
+    color: #ffaaaa;
+}
+#blog-post-add form input, #blog-post-add form textarea {
+    display: block;
+    width: 100%;
+}
+#blog-post-add form textarea {
+    height: 8em;
+}
+#blog-post-add form button {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-radius: 0.25em;
+    font-size: 150%;
+    float: right;
+    background-color: #e4e4e4;
+    margin: 0.5em;
+    margin-left: 1em;
+    margin-right: 0;
+}
+#blog-admin-panel > div {
+    width: 48%;
+    float: left;
+    padding-right: 1em;
+}
+#blog-admin-control-panel {
+    padding-top: 1.9em;
+}
+#blog-admin-control-panel > div {
+    display: inline-block;
+    width: 100%;
+    line-height: 3em;
+    height: 3em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+    background-image: url(../images/black_25.png);
+    vertical-align: middle;
+}
+#blog-admin-control-panel #control-panel-filter {
+    width: 100%;
+    font-size: 150%;
+    margin: 0;
+    margin-bottom: 1em;
+    margin-top: 0.25em;
+    border: 1px solid #333333;
+}
+#blog-admin-control-panel > div:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #ffe6ba;
+}
+#footer-container {
+    background-image: url(../images/black_25.png);
+    min-height: 2em;
+    text-align: center;
+    color: #c0c0c0;
+    font-size: 80%;
+    padding: 1em;
+    padding-top: 2em;
+}

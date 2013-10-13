@@ -1,0 +1,1 @@
+define([],function(){return function(e){var t={},n="http://nuclearhorsestudios.com/nuclearhorseblog/",r=n+"_design/blog/_view/all";return t.getRecentPosts=function(t){return e.get(r+"?limit="+t+"&descending=true")},t.getAllPosts=function(){return e.get(r+"?descending=true")},t.addPost=function(t){return e.post(n,t)},t.deletePost=function(e){console.log(e._id)},t}});

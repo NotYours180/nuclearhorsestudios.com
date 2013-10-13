@@ -1,0 +1,1 @@
+define(["RecentBlogPosts","BlogAddPostController","BlogDeletePostController","BlogAdminController","AdminController","CreationsController","ContactController"],function(e,t,n,r,i,s,o){return{RecentBlogPosts:e,BlogAddPostController:t,BlogDeletePostController:n,BlogAdminController:r,AdminController:i,CreationsController:s,ContactController:o}});

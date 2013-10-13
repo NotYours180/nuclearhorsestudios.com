@@ -1,0 +1,1 @@
+define(["jquery","angular","ngResource","BlogController","jasmine","jasmineFixture","underscore"],function(e,t,n,r){describe("Blog Controller",function(){var e;beforeEach(function(){e={},r(e)}),it("should be true",function(){console.log(e)})})});

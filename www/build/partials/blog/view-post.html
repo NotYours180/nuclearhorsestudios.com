@@ -1,0 +1,3 @@
+<h2>{{ post.title }}</h2>
+<span ng-if="post.title || post.body" class="blog-date">{{ post.date | blogPostDate }}</span>
+<p ng-bind-html="post.body | markdown"></p>

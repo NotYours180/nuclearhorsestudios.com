@@ -1,0 +1,1 @@
+define([],function(){return function(e){var t={};return function(n){var r=new Showdown.converter;return t[n]||(t[n]=e.trustAsHtml(r.makeHtml(n||"")))}}});

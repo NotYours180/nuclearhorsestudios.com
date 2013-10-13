@@ -1,0 +1,1 @@
+define([],function(){return function(){return function(e){var t=new Date(e);return t.toDateString()+" - "+t.toLocaleTimeString()}}});
