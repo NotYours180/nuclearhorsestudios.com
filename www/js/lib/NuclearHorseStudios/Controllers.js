@@ -17,12 +17,12 @@ define([
         ContactController) {
         
         return {
-            RecentBlogPosts: RecentBlogPosts,
-            BlogAddPostController: BlogAddPostController,
-            BlogDeletePostController: BlogDeletePostController,
-            BlogAdminController: BlogAdminController,
-            AdminController: AdminController,
-            CreationsController: CreationsController,
-            ContactController: ContactController
+            RecentBlogPosts:            RecentBlogPosts,
+            BlogAddPostController:      BlogAddPostController,
+            BlogDeletePostController:   BlogDeletePostController,
+            BlogAdminController:        BlogAdminController,
+            AdminController:            AdminController,
+            CreationsController:        CreationsController,
+            ContactController:          ContactController
         };
-})
+});

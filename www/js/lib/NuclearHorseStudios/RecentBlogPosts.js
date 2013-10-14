@@ -12,5 +12,5 @@ define([], function(angular, ngResource) {
             .error(function(data, status, headers, config) {
                 $scope.status = status;
             });    
-    }
+    };
 });

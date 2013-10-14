@@ -3,5 +3,5 @@ define([], function() {
         $scope.setPost = function(post) {
             $scope.$broadcast('setBlogPost', post);
         };
-    }
+    };
 });

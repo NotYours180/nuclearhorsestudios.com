@@ -1,5 +1,6 @@
 require.config({
     baseUrl: '/',
+    
     paths: {
         jquery:              'js/lib/dep/jquery',
         angular:             'js/lib/dep/angular',
@@ -16,6 +17,7 @@ require.config({
         NuclearHorseStudios: 'js/lib/NuclearHorseStudios/NuclearHorseStudios',
         RequireConfig:       'js/lib/RequireConfig'
     },
+
     shim: {
         angular: { 
             deps: ['jquery'],
@@ -36,6 +38,7 @@ require.config({
             exports: '_'
         }
     },
+
     map: {
         '*': { 
             jquery: 'js/lib/dep/jqueryPrivate',

@@ -11,5 +11,5 @@ define([], function(angular) {
             .error(function(data, status, headers, config) {
                 $scope.status = status;
             });
-    }
+    };
 });
