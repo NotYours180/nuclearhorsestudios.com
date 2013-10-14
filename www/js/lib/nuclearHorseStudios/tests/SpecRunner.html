@@ -9,9 +9,15 @@
 
   <!-- include source files here... -->
   <script type="text/javascript" src="../../dep/require.js"></script>
+  <script type="text/javascript" src="../../requireConfig.js"></script>
+
 
   <script type="text/javascript">
-    require(['DbTypeFactory', 'jasmine', 'jasmineHtml', 'DbTypeFactorySpec'], function(DbTypeFactory) {
+    require(['jasmine', 
+             'jasmineHtml', 
+             'js/lib/nuclearHorseStudios/tests/spec/DbTypeFactorySpec'], 
+             function() 
+    {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
 

@@ -14,7 +14,9 @@ define([], function() {
                 return; 
             }
 
-            if (isPosting === true) { return; } else { isPosting = true; } 
+            if (isPosting === true) { return; } 
+            
+            isPosting = true;
 
             scope.post.date = new Date().getTime();
             scope.status = 'Submitting form ...';
@@ -23,10 +25,12 @@ define([], function() {
                 .success(function(data, status, headers, config) {
                     scope.resetPost();
                     scope.status = 'Post Successful!';
-                    isPosting = false;
                 })
                 .error(function(data, status, headers, config) {
                     scope.status = status + ' - ' + data.error + ":" + data.reason;
+                })
+                .finally(function() {
+                    isPosting = false;
                 }); 
         };
 

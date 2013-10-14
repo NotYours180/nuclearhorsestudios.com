@@ -8,6 +8,9 @@ require.config({
         ngRoute:             'js/lib/dep/angular-route',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
+        jasmine:             'js/lib/dep/jasmine',
+        jasmineFixture:      'js/lib/dep/jasmine-fixture',
+        jasmineHtml:         'js/lib/dep/jasmine-html',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
@@ -36,6 +39,17 @@ require.config({
         },
         underscore: {
             exports: '_'
+        },
+        jasmine: {
+            exports: 'jasmine'
+        },
+        jasmineHtml: {
+            deps: ['jasmine'],
+            exports: 'jasmine'
+        },
+        jasmineFixture: {
+            deps: ['jasmine'],
+            exports: 'jasmine'
         }
     },
 

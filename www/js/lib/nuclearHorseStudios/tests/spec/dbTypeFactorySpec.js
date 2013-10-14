@@ -1,4 +1,4 @@
-define(['DbTypeFactory', 'tests/lib/jasmine-1.3.0/jasmine',  'tests/lib/jasmine-1.3.0/jasmine-html', 'tests/lib/jasmine-1.3.0/jasmine-fixture'], function(DbTypeFactory) {
+define(['DbTypeFactory'], function(DbTypeFactory) {
         console.log(jasmine)        
         describe("DbTypeFactory", function() {
             var factory, $http, type, host, dbName, designDoc;
