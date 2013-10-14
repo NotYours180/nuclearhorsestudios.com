@@ -12,15 +12,37 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks("grunt-image-embed");
+    grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.initConfig
     ({
         srcDir: 'www',
         distDir: 'www-build',
         tempDir: 'temp',
-        less:{
-            dist:{
-                options:{
+        jshint: {
+            dist: {
+                files: { src: ['www/js/lib/nuclearHorseStudios/*.js'] },
+                options: {
+                    globals: {
+                        camelcase: true,
+                        curly: true,
+                        eqeqeq: true,
+                        latedef: 'nofunc',
+                        noempty: true,
+                        undef: true,
+                        unused: true,
+                        strict: true,
+                        browser: true,
+                        couch: true,
+                        jquery: true    
+                    }
+                }    
+            }
+        },
+        less: {
+            dist: {
+                options: {
                     compress: true
                 },
                 expand:true,
@@ -119,7 +141,7 @@ module.exports = function(grunt)
                     uglify2: {
                         mangle:false
                     },
-                    mainConfigFile: 'www/js/lib/RequireConfig.js',
+                    mainConfigFile: 'www/js/lib/requireConfig.js',
                     preserveLicenseComments: false,
                     baseUrl: "<%= tempDir %>",
                     dir:'<%= distDir %>',
@@ -183,7 +205,7 @@ module.exports = function(grunt)
         grunt.config.set('requireJSOptimise', 'none');
     });
 
-    grunt.registerTask('scripts', ['copy:scripts_to_temp','ngmin','requirejs']);
+    grunt.registerTask('scripts', ['copy:scripts_to_temp', 'jshint', 'ngmin','requirejs']);
     grunt.registerTask('styles' , ['cssmin','less']);
     grunt.registerTask('images' , ['imagemin', 'imageEmbed']);
     grunt.registerTask('default', ['clean:on_start','scripts','styles','htmlmin','images','replace:dist_build_time','clean:on_finish']);

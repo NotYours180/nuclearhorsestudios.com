@@ -38,5 +38,5 @@ define([], function() {
         };
 
         $scope.resetPost();
-    }
+    };
 });
