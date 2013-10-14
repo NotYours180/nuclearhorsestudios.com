@@ -1,6 +1,6 @@
 require.config({
     baseUrl: '/',
-    
+
     paths: {
         jquery:              'js/lib/dep/jquery',
         angular:             'js/lib/dep/angular',
@@ -8,14 +8,14 @@ require.config({
         ngRoute:             'js/lib/dep/angular-route',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
-        Controllers:         'js/lib/NuclearHorseStudios/Controllers',
-        BlogDataFactory:     'js/lib/NuclearHorseStudios/Factories/BlogDataFactory',
-        MarkDownFilter:      'js/lib/NuclearHorseStudios/Filters/MarkdownFilter',
-        BlogPostDateFilter:  'js/lib/NuclearHorseStudios/Filters/BlogPostDateFilter',
-        DbTypeFactory:       'js/lib/DbTypeFactory',
-        RouteProvider:       'js/lib/NuclearHorseStudios/RouteProvider',
-        NuclearHorseStudios: 'js/lib/NuclearHorseStudios/NuclearHorseStudios',
-        RequireConfig:       'js/lib/RequireConfig'
+        Controllers:         'js/lib/nuclearHorseStudios/controllers',
+        BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
+        MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
+        BlogPostDateFilter:  'js/lib/nuclearHorseStudios/filters/blogPostDateFilter',
+        DbTypeFactory:       'js/lib/dbTypeFactory',
+        RouteProvider:       'js/lib/nuclearHorseStudios/routeProvider',
+        NuclearHorseStudios: 'js/lib/nuclearHorseStudios/nuclearHorseStudios',
+        RequireConfig:       'js/lib/requireConfig'
     },
 
     shim: {

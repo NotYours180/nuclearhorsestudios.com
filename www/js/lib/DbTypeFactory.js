@@ -3,7 +3,7 @@ define([], function() {
 
         return function($http) {
 
-            var factory = {}
+            var factory = {};
             var dbLocation = host + "/" + dbName;
             var docViewUri = dbLocation + "/" + designDoc + "/_view/" + type;
         
@@ -35,7 +35,7 @@ define([], function() {
                              '&descending=true';
 
                 return $http.get(docViewUri + params);
-            }
+            };
 
             return factory;
         };

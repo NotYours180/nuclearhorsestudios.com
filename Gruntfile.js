@@ -11,6 +11,7 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks("grunt-image-embed");
 
     grunt.initConfig
     ({
@@ -27,6 +28,15 @@ module.exports = function(grunt)
                 src: ['app/**/*.styles.less'],
                 dest: '<%= distDir %>',
                 ext:'.styles.css'
+            }
+        },
+        imageEmbed: {
+            dist: {
+                src: [ '<%= srcDir %>/css/nhs.css', ],
+                dest: '<%= distDir %>/css/nhs.css',
+                options: {
+                    deleteAfterEncoding : false
+                }
             }
         },
         cssmin: {
@@ -175,7 +185,7 @@ module.exports = function(grunt)
 
     grunt.registerTask('scripts', ['copy:scripts_to_temp','ngmin','requirejs']);
     grunt.registerTask('styles' , ['cssmin','less']);
-    grunt.registerTask('images' , ['imagemin']);
+    grunt.registerTask('images' , ['imagemin', 'imageEmbed']);
     grunt.registerTask('default', ['clean:on_start','scripts','styles','htmlmin','images','replace:dist_build_time','clean:on_finish']);
     grunt.registerTask('dev'    , ['setup-dev','default']);
 };

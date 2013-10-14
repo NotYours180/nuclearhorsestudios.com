@@ -1,11 +1,11 @@
 define([
-    'js/lib/NuclearHorseStudios/RecentBlogPosts', 
-    'js/lib/NuclearHorseStudios/BlogAdminController', 
-    'js/lib/NuclearHorseStudios/BlogAddPostController', 
-    'js/lib/NuclearHorseStudios/BlogDeletePostController', 
-    'js/lib/NuclearHorseStudios/AdminController', 
-    'js/lib/NuclearHorseStudios/CreationsController', 
-    'js/lib/NuclearHorseStudios/ContactController'], 
+    'js/lib/nuclearHorseStudios/recentBlogPosts', 
+    'js/lib/nuclearHorseStudios/blogAdminController', 
+    'js/lib/nuclearHorseStudios/blogAddPostController', 
+    'js/lib/nuclearHorseStudios/blogDeletePostController', 
+    'js/lib/nuclearHorseStudios/adminController', 
+    'js/lib/nuclearHorseStudios/creationsController', 
+    'js/lib/nuclearHorseStudios/contactController'], 
 
     function(
         RecentBlogPosts,
