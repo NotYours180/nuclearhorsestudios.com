@@ -22,9 +22,8 @@ define([], function() {
                 return $http.post(dbLocation, data);
             };
 
-            factory.delete = function(id) {
-                
-                console.log(id);
+            factory.delete = function(data) {
+                return $http.delete(dbLocation + '/' + data._id);
             };
 
             factory.getPage = function(pageNum, itemsPerPage) {

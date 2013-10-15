@@ -1,5 +1,5 @@
 define([], function() {
-    return function ($scope, blogData, $sce) {
+    return function ($scope, blogData) {
 
         var self       = this;
         var isPosting  = false;
@@ -15,7 +15,7 @@ define([], function() {
             }
 
             if (isPosting === true) { return; } 
-            
+
             isPosting = true;
 
             scope.post.date = new Date().getTime();

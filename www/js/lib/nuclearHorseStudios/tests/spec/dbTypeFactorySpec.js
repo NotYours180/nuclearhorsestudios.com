@@ -1,12 +1,12 @@
 define(['DbTypeFactory'], function(DbTypeFactory) {
-        console.log(jasmine)        
         describe("DbTypeFactory", function() {
             var factory, $http, type, host, dbName, designDoc;
 
             beforeEach(function() {
                 $http = {
                     get: function() {},
-                    post: function() {}
+                    post: function() {},
+                    delete: function() {}
                 };
 
                 type        = 'blogpost';
@@ -15,17 +15,6 @@ define(['DbTypeFactory'], function(DbTypeFactory) {
                 designDoc   = '_design/blog';
 
                 factory = DbTypeFactory(type, host, dbName, designDoc)($http);
-            });
-
-            describe('add', function() {
-          
-                it('Calls $http.post with the correct url for adding data', function() {
-                    spyOn($http, 'post').andCallFake(function(url) {
-                        expect(url).toBe(host + '/' + dbName);
-                    });
-
-                    var results = factory.add({ some: 'data' });
-                });
             });
 
             describe('getAll', function() {
@@ -83,9 +72,32 @@ define(['DbTypeFactory'], function(DbTypeFactory) {
                                             type      + '?skip=8&limit=4&descending=true';
                     
                     var results = factory.getPage(3, 4);
-                    console.log(expectedUrl)
                     
                     expect(spy).toHaveBeenCalledWith(expectedUrl);
+                });
+            });
+
+            describe('add', function() {
+          
+                it('Calls $http.post with the correct url for adding data', function() {
+                    var data        = { some: 'data' };
+                    var expectedUrl = host + '/' + dbName;
+                    var httpSpy     = spyOn($http, 'post');
+                    var results     = factory.add(data);
+
+                    expect(httpSpy).toHaveBeenCalledWith(expectedUrl, { some: 'data' });
+                });
+            });
+
+            describe('delete', function() {
+
+                it('Calls $http.delete with correct url for deleting id 1', function() {
+                    var data        = { _id: 1 };
+                    var expectedUrl = host + '/' + dbName + '/' + data._id;
+                    var httpSpy     = spyOn($http, 'delete');
+                    var results     = factory.delete(data);
+
+                    expect(httpSpy).toHaveBeenCalledWith(expectedUrl);
                 });
             });
         });

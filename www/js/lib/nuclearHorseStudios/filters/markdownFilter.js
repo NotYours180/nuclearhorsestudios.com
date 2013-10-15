@@ -1,4 +1,4 @@
-define([], function() {
+define(['showdown'], function() {
     return function ($sce) {
         var trusted = {};
         return function(input) {

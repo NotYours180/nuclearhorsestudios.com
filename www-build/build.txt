@@ -15,9 +15,9 @@ js/lib/nuclearHorseStudios/creationsController.js
 js/lib/nuclearHorseStudios/contactController.js
 js/lib/nuclearHorseStudios/controllers.js
 js/lib/dbTypeFactory.js
+js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/filters/markdownFilter.js
 js/lib/nuclearHorseStudios/filters/blogPostDateFilter.js
 js/lib/nuclearHorseStudios/routeProvider.js
 js/lib/dep/underscore.min.js
-js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/nuclearHorseStudios.js
