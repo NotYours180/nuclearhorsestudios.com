@@ -2,7 +2,8 @@
     <label for="control-panel-filter">Filter</label>
     <input type="text" ng-model="blogPostFilter" id="control-panel-filter"></input>
     <div ng-repeat='post in posts | filter:{ title: blogPostFilter }'
-         ng-click='setPost(post)'>
+         ng-click='setPost(post)'
+         class="darkened">
 
         {{ post.title }}
     </div>

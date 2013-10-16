@@ -3,10 +3,10 @@ require.config({
 
     paths: {
         jquery:              'js/lib/dep/jquery',
-        jqueryCouch:         'js/lib/dep/jquery.couch',
         angular:             'js/lib/dep/angular',
         ngResource:          'js/lib/dep/angular-resource',
         ngRoute:             'js/lib/dep/angular-route',
+        ngMock:              'js/lib/dep/angular-mock',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
         jasmine:             'js/lib/dep/jasmine',
@@ -17,6 +17,7 @@ require.config({
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
         BlogPostDateFilter:  'js/lib/nuclearHorseStudios/filters/blogPostDateFilter',
         DbTypeFactory:       'js/lib/dbTypeFactory',
+        CouchFactory:        'js/lib/nuclearHorseStudios/factories/couchFactory',
         RouteProvider:       'js/lib/nuclearHorseStudios/routeProvider',
         NuclearHorseStudios: 'js/lib/nuclearHorseStudios/nuclearHorseStudios',
         RequireConfig:       'js/lib/requireConfig'
@@ -30,6 +31,10 @@ require.config({
         angular: { 
             deps: ['jquery'],
             exports: 'angular'
+        },
+        ngMock: {
+            deps: ['angular'],
+            exports: 'inject'
         },
         ngResource: {
             deps: ['angular'],

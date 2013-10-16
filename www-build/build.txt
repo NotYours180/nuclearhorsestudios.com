@@ -10,6 +10,7 @@ js/lib/nuclearHorseStudios/recentBlogPosts.js
 js/lib/nuclearHorseStudios/blogAddPostController.js
 js/lib/nuclearHorseStudios/blogDeletePostController.js
 js/lib/nuclearHorseStudios/blogAdminController.js
+js/lib/dep/jquery.couch.js
 js/lib/nuclearHorseStudios/adminController.js
 js/lib/nuclearHorseStudios/creationsController.js
 js/lib/nuclearHorseStudios/contactController.js

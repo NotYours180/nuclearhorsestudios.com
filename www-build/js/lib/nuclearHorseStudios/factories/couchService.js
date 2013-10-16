@@ -1,0 +1,1 @@
+define([],function(){return["$http",function($http){console.log("http",$http)}]});
