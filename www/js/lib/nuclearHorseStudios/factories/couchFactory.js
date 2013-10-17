@@ -1,12 +1,10 @@
-define([], function() {
-    return function($http) {
-        var couchFactory = {
+function CouchFactory($http) {
+    var couchFactory = {
 
-            getSession: function() {
-                return $http.get('http://www.example.com/_session');
-            }
-        };
-
-        return couchFactory;
+        getSession: function() {
+            return $http.get('http://www.example.com/_session');
+        }
     };
-});
+
+    return couchFactory;
+}
