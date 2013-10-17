@@ -3,6 +3,7 @@ require.config({
 
     paths: {
         jquery:              'js/lib/dep/jquery',
+        jqueryCookie:        'js/lib/dep/jquery.cookie',
         angular:             'js/lib/dep/angular',
         ngResource:          'js/lib/dep/angular-resource',
         ngRoute:             'js/lib/dep/angular-route',
@@ -24,10 +25,6 @@ require.config({
     },
 
     shim: {
-        jqueryCouch: {
-            deps: ['jquery'],
-            exports: 'jQuery'
-        },
         angular: { 
             deps: ['jquery'],
             exports: 'angular'

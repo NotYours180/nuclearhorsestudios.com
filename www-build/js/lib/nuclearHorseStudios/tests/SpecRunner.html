@@ -1,11 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><title>Jasmine Spec Runner</title><link rel="stylesheet" type="text/css" href="/css/jasmine.css"><script type="text/javascript" src="../../dep/require.js"></script><script type="text/javascript" src="../../requireConfig.js"></script><script type="text/javascript">require(['jasmine', 
-             'jasmineHtml', 
-             'js/lib/nuclearHorseStudios/tests/spec/blogAddPostControllerSpec',
-             'js/lib/nuclearHorseStudios/tests/spec/markdownFilterSpec',
-             'js/lib/nuclearHorseStudios/tests/spec/blogPostDateFilterSpec',
-             'js/lib/nuclearHorseStudios/tests/spec/dbTypeFactorySpec'], 
-             function() 
-    {
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><title>Jasmine Spec Runner</title><link rel="stylesheet" type="text/css" href="/css/jasmine.css"><script type="text/javascript" src="/js/lib/dep/jasmine.js"></script>,<script type="text/javascript" src="/js/lib/dep/jasmine-html.js"></script><script type="text/javascript" src="/js/lib/dep/angular.js"></script><script type="text/javascript" src="/js/lib/dep/angular-mock.js"></script><script type="text/javascript" src="/js/lib/nuclearHorseStudios/factories/couchFactory.js"></script><script type="text/javascript" src="/js/lib/nuclearHorseStudios/tests/spec/couchFactorySpec.js"></script><script type="text/javascript">(function() {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
 
@@ -19,13 +12,15 @@
 
       var currentWindowOnload = window.onload;
 
-      if (currentWindowOnload) {
-        currentWindowOnload();
-      }
-      execJasmine();
-
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
 
       function execJasmine() {
         jasmineEnv.execute();
       }
-  });</script></head><body></body></html>
+
+    })();</script></head><body></body></html>

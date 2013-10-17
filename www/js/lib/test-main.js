@@ -16,6 +16,7 @@ requirejs.config({
 
     paths: {
         jquery:              'js/lib/dep/jquery',
+        jqueryCookie:        'js/lib/dep/jquery.cookie',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
@@ -28,9 +29,6 @@ requirejs.config({
     },
 
     shim: {
-        jquery: {
-            exports: 'jQuery, $'
-        },
         showdown: {
             exports: 'Showdown'
         },
