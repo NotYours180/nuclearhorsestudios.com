@@ -52,6 +52,15 @@ table {
     clear: both !important;
 }
 
+form button {
+    cursor: pointer;
+    border: none;
+}
+
+form button:hover {
+    background-color: #ff7800 !important;
+}
+
 body {
     position: absolute;
     height: auto;
@@ -69,6 +78,7 @@ body {
 #content-container > h1 {
     text-align: right;
     position: fixed;
+    top: 0;
     display: inline-block;
     width: 86%;
     min-width: 640px; 
@@ -276,6 +286,24 @@ nav ul li a {
     margin: 0.5em;
     margin-left: 1em;
     margin-right: 0;
+}
+
+#admin-panel form.login-form {
+    padding: 1em;
+    border-radius: 1em;
+    text-align: right;
+}
+
+#admin-panel form.login-form input {
+    font-size: 80%;    
+    margin-right: 2em;
+}
+
+#admin-panel form.login-form button {
+    width: 6em;
+    height: 2em;
+    border: none;
+    border-radius: 0.5em;
 }
 
 #blog-admin-panel > div {

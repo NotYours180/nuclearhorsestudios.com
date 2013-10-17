@@ -1,4 +1,4 @@
-define(['CouchFactory', 'underscore'], function(CouchFactory) {
+define(['CouchFactory', 'jquery', 'jqueryCookie', 'underscore'], function(CouchFactory, $) {
     describe('CouchFactory', function() {
         var factory, $http;
 
@@ -26,11 +26,11 @@ define(['CouchFactory', 'underscore'], function(CouchFactory) {
             var getSpy, postSpy;
 
             function setAuthCookie() {
-                document.cookie = "AuthSession=YW5uYTo0QUIzOTdFQjrC4ipN-D-53hw1sJepVzcVxnriEw";
+                $.cookie("AuthSession", "YW5uYTo0QUIzOTdFQjrC4ipN-D-53hw1sJepVzcVxnriEw");
             }
 
             function removeAuthCookie() {
-                document.cookie = 'AuthSession=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                $.removeCookie('AuthSession');
             }
             
             beforeEach(function() {
@@ -77,7 +77,7 @@ define(['CouchFactory', 'underscore'], function(CouchFactory) {
                     it('Returns false when the user is not yet logged in', function() {
                         initFactory();
 
-                        expect(factory.isLoggedIn()).toBe(false);
+                        expect(factory.isLoggedIn).toBe(false);
                     });
 
                     it('Returns true when user has an auth cookie.', function() {
@@ -87,10 +87,9 @@ define(['CouchFactory', 'underscore'], function(CouchFactory) {
                             }
                         };
                         
-                        initFactory();
                         setAuthCookie();
-
-                        expect(factory.isLoggedIn()).toBe(true);
+                        initFactory();
+                        expect(factory.isLoggedIn).toBe(true);
                     });
                 });
 
@@ -121,7 +120,7 @@ define(['CouchFactory', 'underscore'], function(CouchFactory) {
                     it('Returns true when user is logged in', function() {
                         factory.logIn('username', 'password');
 
-                        expect(factory.isLoggedIn()).toBe(true);
+                        expect(factory.isLoggedIn).toBe(true);
                     });
                 });
 

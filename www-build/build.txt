@@ -13,8 +13,11 @@ js/lib/nuclearHorseStudios/blogAdminController.js
 js/lib/nuclearHorseStudios/adminController.js
 js/lib/nuclearHorseStudios/creationsController.js
 js/lib/nuclearHorseStudios/contactController.js
+js/lib/dep/jquery.cookie.js
+js/lib/nuclearHorseStudios/loginController.js
 js/lib/nuclearHorseStudios/controllers.js
 js/lib/dbTypeFactory.js
+js/lib/nuclearHorseStudios/factories/couchFactory.js
 js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/filters/markdownFilter.js
 js/lib/nuclearHorseStudios/filters/blogPostDateFilter.js

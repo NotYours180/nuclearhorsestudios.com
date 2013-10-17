@@ -5,11 +5,13 @@ define(['jquery', 'jqueryCookie'], function($) {
         
         function _setSessionInfo(data) {
             factory.sessionInfo = data;
+            factory.checkIfLoggedIn();
         }
 
         factory = {
-            host: 'http://www.nuclearhorsestudios.com:5894',
-            
+            host: 'http://www.nuclearhorsestudios.com:5984',
+            isLoggedIn: false,
+
             logIn: function(username, password) {
                 var data = {
                     username: username,
@@ -25,19 +27,21 @@ define(['jquery', 'jqueryCookie'], function($) {
                             .success(_setSessionInfo);
             },
 
-            isLoggedIn: function() {
+            checkIfLoggedIn: function() {
                 var hasAuthSession = $.cookie('AuthSession') !== undefined;
                 var hasSessionInfo = factory.sessionInfo.userCtx !== undefined &&
                                      factory.sessionInfo.userCtx.name !== null;
 
-                return hasAuthSession && hasSessionInfo;
+                this.isLoggedIn = hasAuthSession && hasSessionInfo; 
+                
+                return factory.isLoggedIn;
             },
 
             sessionInfo: null
         };
 
         factory.getSession();
-
+        
         return factory;
     };
 });

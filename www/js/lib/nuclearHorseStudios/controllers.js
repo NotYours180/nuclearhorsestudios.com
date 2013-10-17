@@ -5,7 +5,8 @@ define([
     'js/lib/nuclearHorseStudios/blogAdminController',
     'js/lib/nuclearHorseStudios/adminController',
     'js/lib/nuclearHorseStudios/creationsController',
-    'js/lib/nuclearHorseStudios/contactController'], 
+    'js/lib/nuclearHorseStudios/contactController',
+    'js/lib/nuclearHorseStudios/loginController'], 
 
     function(
         RecentBlogPosts,
@@ -14,7 +15,8 @@ define([
         BlogAdminController,
         AdminController,
         CreationsController,
-        ContactController) {
+        ContactController,
+        LoginController) {
         
         return {
             RecentBlogPosts:            RecentBlogPosts,
@@ -23,6 +25,7 @@ define([
             BlogAdminController:        BlogAdminController,
             AdminController:            AdminController,
             CreationsController:        CreationsController,
-            ContactController:          ContactController
+            ContactController:          ContactController,
+            LoginController:            LoginController
         };
 });

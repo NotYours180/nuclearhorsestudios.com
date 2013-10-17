@@ -4,6 +4,7 @@ define([
     'ngRoute',
     'Controllers',
     'DbTypeFactory',
+    'CouchFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
     'RouteProvider',
@@ -16,6 +17,7 @@ define([
         ngRoute, 
         Controllers,
         DbTypeFactory,
+        CouchFactory,
         MarkDownFilter,
         BlogPostDateFilter,
         RouteProvider) 
@@ -30,6 +32,7 @@ define([
                       .filter('markdown', ['$sce', MarkDownFilter])
                       .filter('blogPostDate', BlogPostDateFilter)
                       .factory('blogData', blogDataFactory)
+                      .factory('CouchFactory', CouchFactory)
                       .config([ '$routeProvider', RouteProvider ]);
     }
 );
