@@ -1,26 +1,33 @@
-describe('CouchFactory', function() {
-    var httpBackend, factory;
+define(['CouchFactory'], function(CouchFactory) {
+    describe('CouchFactory', function() {
+        var httpBackend, factory, http, module;
 
-    angular.module('testApp', ['ngMock']).factory('cFactory', CouchFactory);
+        beforeEach(function() {
+            module = angular.module('testApp', ['ngMock']);
+            angular.mock.module('testApp'); 
+        });
 
-    beforeEach(angular.mock.module('testApp'));
+        beforeEach(inject(function($httpBackend, $http) {
+            module.factory('couchFactory', CouchFactory);
+            httpBackend = $httpBackend;
+            http = $http;
+        }));
 
-    beforeEach(inject(function($httpBackend, cFactory) {
-        httpBackend = $httpBackend;
-        factory = cFactory;
-    }));
+        beforeEach(inject(function(couchFactory) {
+            factory = couchFactory;
+        }));
 
-    afterEach(function() {
-        httpBackend.verifyNoOutstandingExpectation();
-        httpBackend.verifyNoOutstandingRequest();
-    });
+        afterEach(function() {
+            httpBackend.verifyNoOutstandingExpectation();
+            httpBackend.verifyNoOutstandingRequest();
+        });
 
-    describe('Session', function() {
+        describe('Session', function() {
 
-        it( 'Calls $http get with the correct url to get a user session', function() {   
-            httpBackend.expectGET('http://www.example.com/_session');
-            factory.getSession();
-            httpBackend.flush();
+            it( 'Calls $http get with the correct url to get a user session', function() {   
+                httpBackend.expectGET('http://www.example.com/_session');
+                factory.getSession();
+            });
         });
     });
 });

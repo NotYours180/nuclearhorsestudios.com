@@ -1,10 +1,14 @@
-function CouchFactory($http) {
-    var couchFactory = {
+define([], function() {
 
-        getSession: function() {
-            return $http.get('http://www.example.com/_session');
-        }
+    return function($http) {
+        
+        var couchFactory = {
+
+            getSession: function() {
+                return $http.get('http://www.example.com/_session');
+            }
+        };
+
+        return couchFactory;
     };
-
-    return couchFactory;
-}
+});

@@ -12,57 +12,30 @@ console.log(tests)
 requirejs.config({
     // Karma serves files from '/base'
 
-    baseUrl: 'www/js/lib',
+    baseUrl: '/base',
 
     paths: {
-        jquery:              'dep/jquery',
-        showdown:            'dep/showdown',
-        underscore:          'dep/underscore.min',
-        Controllers:         'nuclearHorseStudios/controllers',
-        BlogDataFactory:     'nuclearHorseStudios/factories/blogDataFactory',
-        MarkDownFilter:      'nuclearHorseStudios/filters/markdownFilter',
-        BlogPostDateFilter:  'nuclearHorseStudios/filters/blogPostDateFilter',
-        DbTypeFactory:       'dbTypeFactory',
-        CouchFactory:        'nuclearHorseStudios/factories/couchFactory',
-        RouteProvider:       'nuclearHorseStudios/routeProvider',
+        jquery:              'js/lib/dep/jquery',
+        showdown:            'js/lib/dep/showdown',
+        underscore:          'js/lib/dep/underscore.min',
+        Controllers:         'js/lib/nuclearHorseStudios/controllers',
+        BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
+        MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
+        BlogPostDateFilter:  'js/lib/nuclearHorseStudios/filters/blogPostDateFilter',
+        DbTypeFactory:       'js/lib/dbTypeFactory',
+        CouchFactory:        'js/lib/nuclearHorseStudios/factories/couchFactory',
+        RouteProvider:       'js/lib/nuclearHorseStudios/routeProvider',
     },
 
     shim: {
         jquery: {
             exports: 'jQuery, $'
         },
-        angular: { 
-            deps: ['jquery'],
-            exports: 'angular'
-        },
-        ngMock: {
-            deps: ['angular'],
-            exports: 'inject'
-        },
-        ngResource: {
-            deps: ['angular'],
-            exports: 'ngResource'
-        },
-        ngRoute: {
-            deps: ['angular'],
-            exports: 'ngRoute',
-        },
         showdown: {
             exports: 'Showdown'
         },
         underscore: {
             exports: '_'
-        },
-        jasmine: {
-            exports: 'jasmine'
-        },
-        jasmineHtml: {
-            deps: ['jasmine'],
-            exports: 'jasmine'
-        },
-        jasmineFixture: {
-            deps: ['jasmine'],
-            exports: 'jasmine'
         }
     },
 

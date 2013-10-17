@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: '/Users/michaellasky/dev/nuclearhorsestudios.com',
+    basePath: 'www',
 
 
     // frameworks to use
@@ -14,13 +14,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      JASMINE,
-      'www/js/lib/test-main.js',
-      'www/js/lib/dep/angular.js',
-      'www/js/lib/dep/angular-mock.js',
-      'www/js/lib/dep/angular-resource.js',
-      'www/js/lib/dep/angular-route.js',
-      {pattern: 'www/js/**/*.js', included: true}
+      'js/lib/dep/angular.js',
+      'js/lib/dep/angular-mock.js',
+      'js/lib/dep/angular-resource.js',
+      'js/lib/dep/angular-route.js',
+      'js/lib/test-main.js',
+      {pattern: 'js/lib/*.js',                      included: false },
+      {pattern: 'js/lib/dep/*.js',                  included: false },
+      {pattern: 'js/lib/nuclearHorseStudios/*.js',  included: false },
+      {pattern: 'js/lib/nuclearHorseStudios/**/*.js',  included: false },
+      {pattern: 'js/**/*Spec.js',                   included: false}
     ],
 
 
