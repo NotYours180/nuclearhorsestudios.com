@@ -2,6 +2,7 @@ define([
     'angular', 
     'ngResource', 
     'ngRoute',
+    'ngCookies',
     'Controllers',
     'DbTypeFactory',
     'CouchFactory',
@@ -15,6 +16,7 @@ define([
         angular, 
         ngResource, 
         ngRoute, 
+        ngCookies,
         Controllers,
         DbTypeFactory,
         CouchFactory,
@@ -27,7 +29,7 @@ define([
                                             'nuclearhorseblog',
                                             '_design/blog');
         
-        return angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute'])
+        return angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute', 'ngCookies'])
                       .controller(Controllers)
                       .filter('markdown', ['$sce', MarkDownFilter])
                       .filter('blogPostDate', BlogPostDateFilter)

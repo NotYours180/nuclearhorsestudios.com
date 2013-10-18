@@ -6,6 +6,7 @@ js/lib/dep/jqueryPrivate.js
 js/lib/dep/angular.js
 js/lib/dep/angular-resource.js
 js/lib/dep/angular-route.js
+js/lib/dep/angular-cookies.js
 js/lib/nuclearHorseStudios/recentBlogPosts.js
 js/lib/nuclearHorseStudios/blogAddPostController.js
 js/lib/nuclearHorseStudios/blogDeletePostController.js
@@ -13,7 +14,6 @@ js/lib/nuclearHorseStudios/blogAdminController.js
 js/lib/nuclearHorseStudios/adminController.js
 js/lib/nuclearHorseStudios/creationsController.js
 js/lib/nuclearHorseStudios/contactController.js
-js/lib/dep/jquery.cookie.js
 js/lib/nuclearHorseStudios/loginController.js
 js/lib/nuclearHorseStudios/controllers.js
 js/lib/dbTypeFactory.js

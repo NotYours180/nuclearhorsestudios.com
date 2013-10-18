@@ -1,13 +1,16 @@
-define(['jquery', 'jqueryCookie'], function($) {
-    return function($scope, CouchFactory) {
+define([], function($) {
+    return function($scope, CouchFactory, $cookies) {
         $scope.login = {};
+        $scope.loggedIn = false;
 
         $scope.isLoggedIn = function() {
-            return !!$.cookie('AuthSession');
+            $scope.loggedIn = !!$cookies.AuthSession;
+            return $scope.loggedIn;
         };
 
         $scope.login = function() {
-            CouchFactory.logIn($scope.login.username, $scope.login.password);
+            CouchFactory.logIn($scope.login.username, $scope.login.password)
+                        .then(function() { CouchFactory.getSession().success(function(data) { console.log(data, $cookies.AuthSession); }); });
         };
     };
 });

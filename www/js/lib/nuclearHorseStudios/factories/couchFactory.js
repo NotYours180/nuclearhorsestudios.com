@@ -1,12 +1,7 @@
-define(['jquery', 'jqueryCookie'], function($) {
+define(['ngCookies'], function() {
 
-    return function($http) {
+    return function($http, $cookies) {
         var factory;
-        
-        function _setSessionInfo(data) {
-            factory.sessionInfo = data;
-            factory.checkIfLoggedIn();
-        }
 
         factory = {
             host: 'http://www.nuclearhorsestudios.com:5984',
@@ -14,27 +9,33 @@ define(['jquery', 'jqueryCookie'], function($) {
 
             logIn: function(username, password) {
                 var data = {
-                    username: username,
+                    name: username,
                     password: password
                 };
 
                 return $http.post(this.host + '/_session', data)
-                            .success(_setSessionInfo);
+                            .success(factory._setSessionInfo);
             },
 
             getSession: function() {
                 return $http.get(this.host + '/_session')
-                            .success(_setSessionInfo);
+                            .success(factory._setSessionInfo);
             },
 
             checkIfLoggedIn: function() {
-                var hasAuthSession = $.cookie('AuthSession') !== undefined;
+                var hasAuthSession = $cookies.AuthSession !== undefined;
                 var hasSessionInfo = factory.sessionInfo.userCtx !== undefined &&
                                      factory.sessionInfo.userCtx.name !== null;
 
                 this.isLoggedIn = hasAuthSession && hasSessionInfo; 
                 
                 return factory.isLoggedIn;
+            },
+
+            _setSessionInfo: function(data, status, headers, config) {
+                factory.sessionInfo = data;
+                console.log($cookies);
+                factory.checkIfLoggedIn();
             },
 
             sessionInfo: null

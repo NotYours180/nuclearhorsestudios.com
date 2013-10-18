@@ -16,9 +16,9 @@ requirejs.config({
 
     paths: {
         jquery:              'js/lib/dep/jquery',
-        jqueryCookie:        'js/lib/dep/jquery.cookie',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
+        ngCookies:           'js/lib/dep/angular-cookies',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',

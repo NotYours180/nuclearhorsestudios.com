@@ -1,11 +1,11 @@
-define(['CouchFactory', 'jquery', 'jqueryCookie', 'underscore'], function(CouchFactory, $) {
+define(['CouchFactory', 'ngCookies', 'underscore'], function(CouchFactory) {
     describe('CouchFactory', function() {
         var factory, $http;
 
-        function initFactory() {
-            factory = CouchFactory($http);
+        var initFactory = inject(function($cookies) {
+            factory = CouchFactory($http, $cookies);
             host    = factory.host;
-        }
+        });
 
         beforeEach(function() {
             $http = {
@@ -20,18 +20,22 @@ define(['CouchFactory', 'jquery', 'jqueryCookie', 'underscore'], function(CouchF
                 },
                 error: function() {}
             };
+
+            angular.module('testApp', ['ngCookies']);
         });
+
+        beforeEach(angular.mock.module('testApp'));
 
         describe('Session Management', function() {
             var getSpy, postSpy;
 
-            function setAuthCookie() {
-                $.cookie("AuthSession", "YW5uYTo0QUIzOTdFQjrC4ipN-D-53hw1sJepVzcVxnriEw");
-            }
+            var setAuthCookie = inject(function ($cookies) {
+                $cookies.AuthSession = 'YW5uYTo0QUIzOTdFQjrC4ipN-D-53hw1sJepVzcVxnriEw';
+            });
 
-            function removeAuthCookie() {
-                $.removeCookie('AuthSession');
-            }
+            var removeAuthCookie = inject(function ($cookies) {
+                delete $cookies.AuthSession;
+            });
             
             beforeEach(function() {
                 getSpy  = spyOn($http, 'get').andCallThrough();
@@ -102,28 +106,35 @@ define(['CouchFactory', 'jquery', 'jqueryCookie', 'underscore'], function(CouchF
                                 name: 'username'
                             }
                         };
-
-                        initFactory();
                     });
 
                     it('Calls $http.post with the correct url to login', function() {
                         var data = {
-                            username: 'username', 
+                            name: 'username', 
                             password: 'password'
                         };
-                        
-                        factory.logIn(data.username, data.password);
+
+                        initFactory();
+                        factory.logIn(data.name, data.password);
 
                         expect(postSpy).toHaveBeenCalledWith(host + '/_session', data);
                     });
 
                     it('Returns true when user is logged in', function() {
+                        initFactory();
                         factory.logIn('username', 'password');
 
                         expect(factory.isLoggedIn).toBe(true);
                     });
-                });
 
+                    it('Sets an auth cookie when one is returned from couchdb', function() {
+                        initFactory();
+
+                        removeAuthCookie();
+                        factory.logIn('username', 'password');
+                        expect()
+                    });
+                });
             });
         });
     });

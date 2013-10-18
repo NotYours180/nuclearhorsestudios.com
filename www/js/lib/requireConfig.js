@@ -3,11 +3,11 @@ require.config({
 
     paths: {
         jquery:              'js/lib/dep/jquery',
-        jqueryCookie:        'js/lib/dep/jquery.cookie',
         angular:             'js/lib/dep/angular',
         ngResource:          'js/lib/dep/angular-resource',
         ngRoute:             'js/lib/dep/angular-route',
         ngMock:              'js/lib/dep/angular-mock',
+        ngCookies:           'js/lib/dep/angular-cookies',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
         jasmine:             'js/lib/dep/jasmine',
@@ -40,6 +40,10 @@ require.config({
         ngRoute: {
             deps: ['angular'],
             exports: 'ngRoute',
+        },
+        ngCookies: {
+            deps: ['angular'],
+            exports: 'ngCookies'
         },
         showdown: {
             exports: 'Showdown'
