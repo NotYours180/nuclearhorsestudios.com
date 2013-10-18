@@ -1,10 +1,10 @@
-define(['ngCookies'], function() {
+define([], function() {
 
     return function($http, $cookies) {
         var factory;
 
         factory = {
-            host: 'http://www.nuclearhorsestudios.com:5984',
+            host: 'http://' + window.location.host + '/db',
             isLoggedIn: false,
 
             logIn: function(username, password) {
@@ -13,12 +13,12 @@ define(['ngCookies'], function() {
                     password: password
                 };
 
-                return $http.post(this.host + '/_session', data)
+                return $http.post(factory.host + '/_session', data)
                             .success(factory._setSessionInfo);
             },
 
             getSession: function() {
-                return $http.get(this.host + '/_session')
+                return $http.get(factory.host + '/_session')
                             .success(factory._setSessionInfo);
             },
 
@@ -34,7 +34,6 @@ define(['ngCookies'], function() {
 
             _setSessionInfo: function(data, status, headers, config) {
                 factory.sessionInfo = data;
-                console.log($cookies);
                 factory.checkIfLoggedIn();
             },
 

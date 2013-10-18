@@ -1,7 +1,7 @@
 define(['Controllers', 'CouchFactory', 'ngCookies'], function(Controllers, CouchFactory) {
     var $scope, loginController, factory;
 
-    angular.module('testApp', []);
+    angular.module('testApp', ['ngCookies']);
 
     describe('LoginController', function() {
 

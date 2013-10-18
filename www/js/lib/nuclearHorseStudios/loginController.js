@@ -10,7 +10,7 @@ define([], function($) {
 
         $scope.login = function() {
             CouchFactory.logIn($scope.login.username, $scope.login.password)
-                        .then(function() { CouchFactory.getSession().success(function(data) { console.log(data, $cookies.AuthSession); }); });
+                        .then(CouchFactory.getSession);
         };
     };
 });
