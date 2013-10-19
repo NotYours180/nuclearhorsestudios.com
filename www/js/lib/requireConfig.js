@@ -7,6 +7,7 @@ require.config({
         ngResource:          'js/lib/dep/angular-resource',
         ngRoute:             'js/lib/dep/angular-route',
         ngMock:              'js/lib/dep/angular-mock',
+        MockHttp:            'js/lib/nuclearHorseStudios/tests/MockHttp',
         ngCookies:           'js/lib/dep/angular-cookies',
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',

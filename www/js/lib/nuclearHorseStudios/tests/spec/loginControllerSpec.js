@@ -1,5 +1,7 @@
-define(['Controllers', 'CouchFactory', 'ngCookies'], function(Controllers, CouchFactory) {
-    var $scope, loginController, factory;
+define(['Controllers', 'CouchFactory', 'MockHttp', 'ngCookies'], 
+        function(Controllers, CouchFactory, MockHttp) 
+{
+    var $scope, loginController, factory, loggedOutResponse, loggedInResponse;
 
     angular.module('testApp', ['ngCookies']);
 
@@ -7,38 +9,59 @@ define(['Controllers', 'CouchFactory', 'ngCookies'], function(Controllers, Couch
 
         beforeEach(angular.mock.module('testApp'));
 
-        var setAuthCookie = inject(function ($cookies) {
-            $cookies.AuthSession = 'YW5uYTo0QUIzOTdFQjrC4ipN-D-53hw1sJepVzcVxnriEw';
-        });
+        var initController = inject(function ($cookies) {
+            loggedOutResponse = {
+                ok:true,
+                userCtx: {
+                    name: null,
+                    roles: []
+                },
+            };
 
-        var removeAuthCookie = inject(function($cookies) {
-            delete $cookies.AuthSession;
-        });
+            loggedInResponse = {
+                ok:true,
+                userCtx: {
+                    name: 'username',
+                    roles: ['admin']
+                },
+            };
 
-        afterEach(function() {
-            removeAuthCookie();
-        });
-
-        var initController = inject(function ($http, $cookies) {
-            factory = CouchFactory($http);
+            factory = CouchFactory(MockHttp, $cookies);
             $scope = {};
+            $scope.login = {};
+            $scope.login.username = 'username';
+            $scope.login.password = 'password';
+
             loginController = Controllers.LoginController($scope, factory, $cookies);
         });
 
+        afterEach(function() {
+            factory.sessionInfo = null;
+        });
+
         describe('isLoggedIn', function() {
+            
+            beforeEach(initController);
 
             it('Scope has an isLoggedIn function which defaults to false', function() {
-                initController();   
-
+                MockHttp.data = loggedOutResponse;
+                initController();
                 expect($scope.isLoggedIn()).toBeDefined();
                 expect($scope.isLoggedIn()).toBe(false);
             });
 
-            it('isLoggedIn is true when user has an auth cookie', function() {
-                setAuthCookie();
+            it('Returns true when user has valid session info', function() {
+                MockHttp.data = loggedInResponse;
                 initController();
+                $scope.login();
 
                 expect($scope.isLoggedIn()).toBe(true);
+            });
+
+            it('Returns false when user does not have valid sessionInfo', function() {
+                MockHttp.data = loggedOutResponse;
+                initController();
+                expect($scope.isLoggedIn()).toBe(false);
             });
         });
 
@@ -54,8 +77,18 @@ define(['Controllers', 'CouchFactory', 'ngCookies'], function(Controllers, Couch
                 var loginSpy = spyOn(factory, 'logIn').andCallThrough();
                 $scope.login();
 
-                expect(loginSpy).toHaveBeenCalled();
+                expect(loginSpy).toHaveBeenCalledWith($scope.login.username, 
+                                                      $scope.login.password);
             });
+
+            it('Calls onLogin after successful request', function() {
+                var onLoginSpy = spyOn($scope, 'onLogin');
+
+                $scope.login();
+
+                expect(onLoginSpy).toHaveBeenCalled();
+            });
+
         });
     });
 });

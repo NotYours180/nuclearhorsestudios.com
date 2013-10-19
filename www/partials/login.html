@@ -1,4 +1,5 @@
-<form class="login-form darkened" ng-hide="loggedIn" ng-show="!loggedIn">
+<form class="login-form darkened" ng-if="!loggedIn">
+
     <label for="login-username">Username</label>:
     <input type="text" ng-model="login.username" id="login-username" />
 
@@ -7,3 +8,7 @@
 
     <button ng-click="login()">Login</button>
 </form>
+
+<div class="login-info darkened" ng-if="loggedIn">
+    {{ login.username }}
+</div>

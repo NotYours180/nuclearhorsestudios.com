@@ -3,14 +3,21 @@ define([], function($) {
         $scope.login = {};
         $scope.loggedIn = false;
 
+        $scope.onLogin = function() {
+            CouchFactory.getSession()
+                        .success($scope.isLoggedIn);
+        };
+
         $scope.isLoggedIn = function() {
-            $scope.loggedIn = !!$cookies.AuthSession;
+            $scope.loggedIn =   CouchFactory.sessionInfo.userCtx && 
+                                CouchFactory.sessionInfo.userCtx.name !== null;
             return $scope.loggedIn;
         };
 
         $scope.login = function() {
+            
             CouchFactory.logIn($scope.login.username, $scope.login.password)
-                        .then(CouchFactory.getSession);
+                        .success($scope.onLogin);
         };
     };
 });

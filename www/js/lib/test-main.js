@@ -19,6 +19,7 @@ requirejs.config({
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
         ngCookies:           'js/lib/dep/angular-cookies',
+        MockHttp:            'js/lib/nuclearHorseStudios/tests/mockHttp',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',

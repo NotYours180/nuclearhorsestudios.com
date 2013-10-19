@@ -1,4 +1,4 @@
-define(['CouchFactory', 'ngCookies', 'underscore'], function(CouchFactory) {
+define(['CouchFactory', 'MockHttp', 'ngCookies', 'underscore'], function(CouchFactory, MockHttp) {
     describe('CouchFactory', function() {
         var factory, $http;
 
@@ -8,18 +8,7 @@ define(['CouchFactory', 'ngCookies', 'underscore'], function(CouchFactory) {
         });
 
         beforeEach(function() {
-            $http = {
-                successFns: [],
-                data: { some: 'data' },
-                get: function() { return this; },
-                post: function() { return this; },
-                success: function(fn) { 
-                    this.successFns.push(fn); 
-                    fn(this.data); 
-                    return this; 
-                },
-                error: function() {}
-            };
+            $http = MockHttp;
 
             angular.module('testApp', ['ngCookies']);
         });

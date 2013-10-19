@@ -1,0 +1,1 @@
+define([],function(){return{data:{some:"data"},successful:!0,get:function(){return this},post:function(){return this},success:function(fn){return this.successful&&fn(this.data),this},then:function(fn){return fn(this.data),delete this.success,delete this.error,this},error:function(fn){return this.successful||fn(this.data),this}}});

@@ -288,7 +288,8 @@ nav ul li a {
     margin-right: 0;
 }
 
-#admin-panel form.login-form {
+#admin-panel form.login-form,
+#admin-panel div.login-info  {
     padding: 1em;
     border-radius: 1em;
     text-align: right;
