@@ -7,19 +7,23 @@
   <link rel="stylesheet" type="text/css" href="/css/jasmine.css">
 
   <!-- include source files here... -->
-  <script type="text/javascript" src='/js/lib/dep/jasmine.js'></script>, 
-  <script type="text/javascript" src='/js/lib/dep/jasmine-html.js'></script> 
-  <script type="text/javascript" src='/js/lib/dep/angular.js'></script>
-  <script type="text/javascript" src='/js/lib/dep/angular-mock.js'></script>  
+  <script type="text/javascript" src="../../dep/require.js"></script>
+  <script type="text/javascript" src="../../requireConfig.js"></script>
 
-  <script type="text/javascript" src='/js/lib/nuclearHorseStudios/factories/couchFactory.js'></script>
-  <!--<script type="text/javascript" src='/js/lib/dep/js/lib/nuclearHorseStudios/tests/spec/blogAddPostControllerSpec.js'></script>
-  <script type="text/javascript" src='/js/lib/dep/js/lib/nuclearHorseStudios/tests/spec/markdownFilterSpec.js'></script>
-  <script type="text/javascript" src='/js/lib/dep/js/lib/nuclearHorseStudios/tests/spec/blogPostDateFilterSpec.js'></script>
-  <script type="text/javascript" src='/js/lib/dep/js/lib/nuclearHorseStudios/tests/spec/dbTypeFactorySpec.js'></script>-->
-  <script type="text/javascript" src='/js/lib/nuclearHorseStudios/tests/spec/couchFactorySpec.js'></script>
- 
   <script type="text/javascript">
+     require(['jasmine', 
+              'jasmineHtml',
+              'angular',
+              'ngMock', 
+              'js/lib/nuclearHorseStudios/tests/spec/blogAddPostControllerSpec',
+              'js/lib/nuclearHorseStudios/tests/spec/markdownFilterSpec',
+              'js/lib/nuclearHorseStudios/tests/spec/blogPostDateFilterSpec',
+              'js/lib/nuclearHorseStudios/tests/spec/dbTypeFactorySpec',
+              'js/lib/nuclearHorseStudios/tests/spec/couchFactorySpec',
+              'js/lib/nuclearHorseStudios/tests/spec/loginControllerSpec'], 
+              function() 
+    {
+
     (function() {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
@@ -34,18 +38,16 @@
 
       var currentWindowOnload = window.onload;
 
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
-        }
-        execJasmine();
-      };
+      if (currentWindowOnload) {
+        currentWindowOnload();
+      }
+      execJasmine();
 
       function execJasmine() {
         jasmineEnv.execute();
       }
 
-    })();
+    })()});
   </script>
 
 </head>
