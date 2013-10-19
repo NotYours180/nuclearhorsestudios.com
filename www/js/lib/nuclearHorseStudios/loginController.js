@@ -1,4 +1,4 @@
-define([], function($) {
+define([], function() {
     return function($scope, CouchFactory, $cookies) {
         $scope.login = {};
         $scope.loggedIn = false;

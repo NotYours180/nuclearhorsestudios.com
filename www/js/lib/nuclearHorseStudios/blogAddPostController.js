@@ -8,30 +8,34 @@ define([], function() {
             $scope.post = post;
         });
 
-        $scope.savePost = function(scope) {
-            if (!scope.addForm.$valid) { 
-                scope.status = "Form Invalid"; 
+        $scope.onAddSuccess = function(data, status, headers, config) {
+            $scope.resetPost();
+            $scope.status = 'Post Successful!';
+        };
+
+        $scope.onAddError = function(data, status, headers, config) {
+            $scope.status = status + ' - ' + data.error + ":" + data.reason;
+        };
+
+        $scope.savePost = function() {
+            if (!$scope.addForm.$valid) { 
+                $scope.status = "Form Invalid"; 
                 return; 
             }
 
-            if (isPosting === true) { return; } 
+            if ($scope.isPosting === true) { 
+                return; 
+            } 
 
             isPosting = true;
 
-            scope.post.date = new Date().getTime();
-            scope.status = 'Submitting form ...';
+            $scope.post.date = new Date().getTime();
+            $scope.status = 'Submitting form ...';
             
-            blogData.add(scope.post)
-                .success(function(data, status, headers, config) {
-                    scope.resetPost();
-                    scope.status = 'Post Successful!';
-                })
-                .error(function(data, status, headers, config) {
-                    scope.status = status + ' - ' + data.error + ":" + data.reason;
-                })
-                .finally(function() {
-                    isPosting = false;
-                }); 
+            blogData.add($scope.post)
+                .success($scope.onAddSuccess)
+                .error($scope.onAddError)
+                .finally(function() { isPosting = false; }); 
         };
 
         $scope.resetPost = function() {

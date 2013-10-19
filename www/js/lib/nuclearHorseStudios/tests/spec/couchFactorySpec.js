@@ -115,14 +115,6 @@ define(['CouchFactory', 'MockHttp', 'ngCookies', 'underscore'], function(CouchFa
 
                         expect(factory.isLoggedIn).toBe(true);
                     });
-
-                    it('Sets an auth cookie when one is returned from couchdb', function() {
-                        initFactory();
-
-                        removeAuthCookie();
-                        factory.logIn('username', 'password');
-                        expect()
-                    });
                 });
             });
         });

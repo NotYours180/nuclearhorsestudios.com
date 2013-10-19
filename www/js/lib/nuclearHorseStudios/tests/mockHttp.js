@@ -17,6 +17,9 @@ define([], function() {
         error: function(fn) {
             if (!this.successful) { fn(this.data); }
             return this; 
+        },
+        finally: function(fn) {
+            fn(this.data);
         }
     };
 });

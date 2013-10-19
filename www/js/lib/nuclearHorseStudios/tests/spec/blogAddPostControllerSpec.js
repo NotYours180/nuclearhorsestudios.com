@@ -1,9 +1,9 @@
-define(['Controllers'], function(controllers) {
+define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
 
     describe('blogAddPostController', function() {
         var $scope, blogDataFactory, blogAddPostController;
 
-        blogAddPostController = controllers.BlogAddPostController;
+        blogAddPostController = Controllers.BlogAddPostController;
 
         beforeEach(function() {
             $scope = {
@@ -13,7 +13,7 @@ define(['Controllers'], function(controllers) {
             $sce = {};
 
             blogDataFactory = {
-                add: function() {}
+                add: function() { return MockHttp; }
             }
         });
 
@@ -60,16 +60,90 @@ define(['Controllers'], function(controllers) {
                 $scope.resetPost();
                 $scope.title = "Some Title";
                 $scope.body  = "Some Body";
-                $scope.type  = "blogpost";          
+                $scope.type  = "blogpost";      
+                $scope.addForm = {};
+                $scope.addForm.$valid = true;
+                MockHttp.successful = true;
             });
 
-            xit('Does not post if already posting', function() {
+            it('Does not post if already posting', function() {
                 $scope.isPosting = true;
-                var addSpy = spyOn(blogDataFactory, 'add');
+                var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
 
                 $scope.savePost();
 
                 expect(addSpy).not.toHaveBeenCalled();
+            });
+
+            it('Changes status to "Submitting form ..." while submitting', function() {
+                var addSpy = spyOn(blogDataFactory, 'add').andCallFake(function() {
+                    expect($scope.status).toBe('Submitting form ...');
+                    return MockHttp;
+                });
+
+                $scope.savePost();
+
+            });
+
+            it('Calls blogDataFactory.add while submitting', function() {
+                var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
+
+                $scope.savePost();
+
+                expect(addSpy).toHaveBeenCalled();
+            });
+
+
+            it('Changes status to "Form Invalid" when form is invalid.', function() {
+                $scope.addForm.$valid = false;
+
+                $scope.savePost();
+
+                expect($scope.status).toBe("Form Invalid");
+            });
+
+            it('Does not call blogDataFactory.add when form is invalid', function() {
+                $scope.addForm.$valid = false;
+                
+                var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
+
+                $scope.savePost();
+
+                expect(addSpy).not.toHaveBeenCalled();
+            });
+
+            it('$scope.onAddSuccess is called when successfully adding a blog post', function() {
+                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
+
+                $scope.savePost();
+
+                expect(onAddSuccessSpy).toHaveBeenCalled();
+            });
+
+            it('$scope.onAddSuccess is not called when unsuccessfully adding a blog post', function() {
+                MockHttp.successful = false;
+                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
+
+                $scope.savePost();
+
+                expect(onAddSuccessSpy).not.toHaveBeenCalled();
+            });
+
+            it('$scope.OnAddError is called when unsuccessfully adding a blog post', function() {
+                MockHttp.successful = false;
+                var onAddErrorSpy = spyOn($scope, 'onAddError');
+
+                $scope.savePost();
+
+                expect(onAddErrorSpy).toHaveBeenCalled();
+            });
+
+            it('$scope.OnAddError is not called when successfully adding a blog post', function() {
+                var onAddErrorSpy = spyOn($scope, 'onAddError');
+
+                $scope.savePost();
+
+                expect(onAddErrorSpy).not.toHaveBeenCalled();
             });
         });
     });
