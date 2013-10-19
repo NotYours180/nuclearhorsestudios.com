@@ -16,6 +16,8 @@ define([
         CreationsController,
         ContactController) 
     {
+        'use strict';
+
         return function($routeProvider) {
             $routeProvider
                 .when('/blog', {

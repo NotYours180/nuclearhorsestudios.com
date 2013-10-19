@@ -1,4 +1,5 @@
 define([], function() {
+    'use strict';
 
     return function($http, $cookies) {
         var factory;

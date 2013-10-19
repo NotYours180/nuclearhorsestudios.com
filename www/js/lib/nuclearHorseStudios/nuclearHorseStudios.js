@@ -24,10 +24,12 @@ define([
         BlogPostDateFilter,
         RouteProvider) 
     {
-        var blogDataFactory = DbTypeFactory('blogpost', 
-                                            '', 
-                                            'nuclearhorseblog',
-                                            '_design/blog');
+        'use strict';
+
+        var blogDataFactory = new DbTypeFactory('blogpost', 
+                                                '', 
+                                                'nuclearhorseblog',
+                                                '_design/blog');
         
         return angular.module('NuclearHorseStudios', ['ngResource', 'ngRoute', 'ngCookies'])
                       .controller(Controllers)

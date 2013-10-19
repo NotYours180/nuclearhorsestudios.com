@@ -1,6 +1,8 @@
 define(['CouchFactory', 'MockHttp', 'ngCookies', 'underscore'], function(CouchFactory, MockHttp) {
+    'use strict';
+
     describe('CouchFactory', function() {
-        var factory, $http;
+        var factory, $http, host;
 
         var initFactory = inject(function($cookies) {
             factory = CouchFactory($http, $cookies);

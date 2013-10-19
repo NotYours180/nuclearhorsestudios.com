@@ -1,6 +1,8 @@
 define(['Controllers', 'CouchFactory', 'MockHttp', 'ngCookies'], 
         function(Controllers, CouchFactory, MockHttp) 
 {
+    'use strict';
+    
     var $scope, loginController, factory, loggedOutResponse, loggedInResponse;
 
     angular.module('testApp', ['ngCookies']);

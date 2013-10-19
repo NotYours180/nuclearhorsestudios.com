@@ -1,4 +1,6 @@
 define([], function() {
+    'use strict';
+
     return function(type, host, dbName, designDoc) {
 
         return function($http) {

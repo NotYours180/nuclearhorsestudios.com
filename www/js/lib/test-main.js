@@ -1,4 +1,6 @@
+'use strict';
 var tests = [];
+
 for (var file in window.__karma__.files) {
   if (window.__karma__.files.hasOwnProperty(file)) {
     if (/Spec\.js$/.test(file)) {
@@ -19,6 +21,7 @@ requirejs.config({
         showdown:            'js/lib/dep/showdown',
         underscore:          'js/lib/dep/underscore.min',
         ngCookies:           'js/lib/dep/angular-cookies',
+        ngMock:              'js/lib/dep/angular-mocks',
         MockHttp:            'js/lib/nuclearHorseStudios/tests/mockHttp',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',

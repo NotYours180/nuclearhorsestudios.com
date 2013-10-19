@@ -1,20 +1,24 @@
-define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
+define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
+    'use strict';
 
     describe('blogAddPostController', function() {
         var $scope, blogDataFactory, blogAddPostController;
 
-        blogAddPostController = Controllers.BlogAddPostController;
+        blogAddPostController = controllers.BlogAddPostController;
 
         beforeEach(function() {
             $scope = {
                 $on: function() {}
             };
 
-            $sce = {};
-
             blogDataFactory = {
-                add: function() { return MockHttp; }
+                add: function() { return mockHttp; }
             }
+        });
+
+        afterEach(function() {
+            mockHttp.successful = true;
+            mockHttp.status = 200;
         });
 
         describe('resetPost', function() {
@@ -27,8 +31,6 @@ define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
                 $scope.status     = "Not empty";
 
                 blogAddPostController($scope, blogDataFactory);
-
-
             });
 
             it('Resets title', function() {
@@ -63,7 +65,7 @@ define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
                 $scope.type  = "blogpost";      
                 $scope.addForm = {};
                 $scope.addForm.$valid = true;
-                MockHttp.successful = true;
+                mockHttp.successful = true;
             });
 
             it('Does not post if already posting', function() {
@@ -78,7 +80,7 @@ define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
             it('Changes status to "Submitting form ..." while submitting', function() {
                 var addSpy = spyOn(blogDataFactory, 'add').andCallFake(function() {
                     expect($scope.status).toBe('Submitting form ...');
-                    return MockHttp;
+                    return mockHttp;
                 });
 
                 $scope.savePost();
@@ -112,25 +114,29 @@ define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
                 expect(addSpy).not.toHaveBeenCalled();
             });
 
-            it('$scope.onAddSuccess is called when successfully adding a blog post', function() {
-                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
-
+            it('Sets $scope.isPosting to false after successfully posting', function() {
+                expect($scope.isPosting).toBe(false);
                 $scope.savePost();
+                expect($scope.isPosting).toBe(false);
+            });
+        });
 
-                expect(onAddSuccessSpy).toHaveBeenCalled();
+        describe('onAddError', function() {
+
+            beforeEach(function() {
+                blogAddPostController($scope, blogDataFactory);
+                
+                $scope.resetPost();
+                $scope.title = "Some Title";
+                $scope.body  = "Some Body";
+                $scope.type  = "blogpost";      
+                $scope.addForm = {};
+                $scope.addForm.$valid = true;
+                mockHttp.successful = true;
             });
 
-            it('$scope.onAddSuccess is not called when unsuccessfully adding a blog post', function() {
-                MockHttp.successful = false;
-                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
-
-                $scope.savePost();
-
-                expect(onAddSuccessSpy).not.toHaveBeenCalled();
-            });
-
-            it('$scope.OnAddError is called when unsuccessfully adding a blog post', function() {
-                MockHttp.successful = false;
+            it('Is called when unsuccessfully adding a blog post', function() {
+                mockHttp.successful = false;
                 var onAddErrorSpy = spyOn($scope, 'onAddError');
 
                 $scope.savePost();
@@ -138,12 +144,62 @@ define(['Controllers', 'MockHttp'], function(Controllers, MockHttp) {
                 expect(onAddErrorSpy).toHaveBeenCalled();
             });
 
-            it('$scope.OnAddError is not called when successfully adding a blog post', function() {
+            it('Is not called when successfully adding a blog post', function() {
                 var onAddErrorSpy = spyOn($scope, 'onAddError');
 
                 $scope.savePost();
 
                 expect(onAddErrorSpy).not.toHaveBeenCalled();
+            });
+
+            it('Sets $scope.status to "400 - Forbidden: For some reason" when unsuccessfully adding a blog post', function() {
+                mockHttp.successful = false;
+                mockHttp.data.error = "Forbidden";
+                mockHttp.data.reason = "For some reason";
+                mockHttp.status = 400;
+
+                $scope.savePost();
+
+                expect($scope.status).toBe('400 - Forbidden: For some reason');
+            });
+        });
+
+        describe('onAddSuccess', function() {
+
+            beforeEach(function() {
+                blogAddPostController($scope, blogDataFactory);
+                
+                $scope.resetPost();
+                $scope.title = "Some Title";
+                $scope.body  = "Some Body";
+                $scope.type  = "blogpost";      
+                $scope.addForm = {};
+                $scope.addForm.$valid = true;
+                mockHttp.successful = true;
+            });
+
+
+            it('Is called when successfully adding a blog post', function() {
+                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
+
+                $scope.savePost();
+
+                expect(onAddSuccessSpy).toHaveBeenCalled();
+            });
+
+            it('Is not called when unsuccessfully adding a blog post', function() {
+                mockHttp.successful = false;
+                var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
+
+                $scope.savePost();
+
+                expect(onAddSuccessSpy).not.toHaveBeenCalled();
+            });
+
+            it('Sets $scope.status to "Post Successful!" on a successful post', function() {
+                $scope.savePost();
+
+                expect($scope.status).toBe("Post Successful!");
             });
         });
     });

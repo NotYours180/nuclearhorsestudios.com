@@ -1,6 +1,9 @@
 define(['BlogPostDateFilter'], function(blogPostDateFilter) {
+    'use strict';
+
     describe('Filter: blogPostDateFilter', function() {
- 
+        var filter;
+        
         beforeEach(function() {
             filter = blogPostDateFilter();
         });

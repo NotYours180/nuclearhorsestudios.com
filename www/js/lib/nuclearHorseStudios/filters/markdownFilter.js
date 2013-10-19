@@ -1,4 +1,6 @@
 define(['showdown'], function() {
+    'use strict';
+
     return function ($sce) {
         var trusted = {};
         return function(input) {

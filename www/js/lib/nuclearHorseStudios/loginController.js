@@ -1,4 +1,6 @@
 define([], function() {
+    'use strict';
+
     return function($scope, CouchFactory, $cookies) {
         $scope.login = {};
         $scope.loggedIn = false;

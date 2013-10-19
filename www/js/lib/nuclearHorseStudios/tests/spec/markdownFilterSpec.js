@@ -1,8 +1,11 @@
 define(['MarkDownFilter'], function(markdownFilter) {
-    describe('Filter: blogPostDateFilter', function() {
+    'use strict';
 
+    describe('Filter: blogPostDateFilter', function() {
+        var filter;
+        
         beforeEach(function() {
-            $sce = {
+            var $sce = {
                 trustAsHtml: function(input) { return input; }
             };
 
