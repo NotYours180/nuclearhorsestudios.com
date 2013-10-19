@@ -7,6 +7,7 @@ define([], function() {
         factory = {
             host: 'http://' + window.location.host + '/db',
             isLoggedIn: false,
+            sessionInfo: {},
 
             logIn: function(username, password) {
                 var data = {
@@ -36,9 +37,7 @@ define([], function() {
             _setSessionInfo: function(data, status, headers, config) {
                 factory.sessionInfo = data;
                 factory.checkIfLoggedIn();
-            },
-
-            sessionInfo: null
+            }
         };
 
         factory.getSession();

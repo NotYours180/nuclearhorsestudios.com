@@ -1,6 +1,6 @@
 define([], function() {
     'use strict';
-    
+
     return function ($scope, blogData) {
 
         $scope.isPosting  = false;
@@ -18,22 +18,23 @@ define([], function() {
             $scope.status = status + ' - ' + data.error + ": " + data.reason;
         };
 
-        $scope.savePost = function() {
-            if ($scope.addForm.$valid) { 
+        $scope.savePost = function(scope) {
+            $scope = scope;
+            if (scope.addForm.$valid) { 
 
-                if ($scope.isPosting === true) { return; } 
+                if (scope.isPosting === true) { return; } 
 
-                $scope.isPosting = true;
+                scope.isPosting = true;
 
-                $scope.post.date = new Date().getTime();
-                $scope.status = 'Submitting form ...';
+                scope.post.date = new Date().getTime();
+                scope.status = 'Submitting form ...';
                 
                 blogData.add($scope.post)
                     .success($scope.onAddSuccess)
                     .error($scope.onAddError)
-                    .finally(function() { $scope.isPosting = false; });                 
+                    .finally(function() { scope.isPosting = false; });                 
             } 
-            else { $scope.status = "Form Invalid"; }
+            else { scope.status = "Form Invalid"; }
         };
 
         $scope.resetPost = function() {

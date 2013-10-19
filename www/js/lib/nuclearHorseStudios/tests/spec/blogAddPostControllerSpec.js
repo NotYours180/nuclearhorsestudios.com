@@ -72,7 +72,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                 $scope.isPosting = true;
                 var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(addSpy).not.toHaveBeenCalled();
             });
@@ -83,14 +83,13 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                     return mockHttp;
                 });
 
-                $scope.savePost();
-
+                $scope.savePost($scope);
             });
 
             it('Calls blogDataFactory.add while submitting', function() {
                 var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(addSpy).toHaveBeenCalled();
             });
@@ -99,7 +98,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
             it('Changes status to "Form Invalid" when form is invalid.', function() {
                 $scope.addForm.$valid = false;
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect($scope.status).toBe("Form Invalid");
             });
@@ -109,14 +108,14 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                 
                 var addSpy = spyOn(blogDataFactory, 'add').andCallThrough();
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(addSpy).not.toHaveBeenCalled();
             });
 
             it('Sets $scope.isPosting to false after successfully posting', function() {
                 expect($scope.isPosting).toBe(false);
-                $scope.savePost();
+                $scope.savePost($scope);
                 expect($scope.isPosting).toBe(false);
             });
         });
@@ -139,7 +138,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                 mockHttp.successful = false;
                 var onAddErrorSpy = spyOn($scope, 'onAddError');
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(onAddErrorSpy).toHaveBeenCalled();
             });
@@ -147,7 +146,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
             it('Is not called when successfully adding a blog post', function() {
                 var onAddErrorSpy = spyOn($scope, 'onAddError');
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(onAddErrorSpy).not.toHaveBeenCalled();
             });
@@ -158,7 +157,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                 mockHttp.data.reason = "For some reason";
                 mockHttp.status = 400;
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect($scope.status).toBe('400 - Forbidden: For some reason');
             });
@@ -182,7 +181,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
             it('Is called when successfully adding a blog post', function() {
                 var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(onAddSuccessSpy).toHaveBeenCalled();
             });
@@ -191,13 +190,13 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
                 mockHttp.successful = false;
                 var onAddSuccessSpy = spyOn($scope, 'onAddSuccess');
 
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect(onAddSuccessSpy).not.toHaveBeenCalled();
             });
 
             it('Sets $scope.status to "Post Successful!" on a successful post', function() {
-                $scope.savePost();
+                $scope.savePost($scope);
 
                 expect($scope.status).toBe("Post Successful!");
             });

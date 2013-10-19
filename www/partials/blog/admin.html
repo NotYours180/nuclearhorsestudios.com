@@ -6,6 +6,7 @@
          class="darkened">
 
         {{ post.title }}
+        <button ng-controller="BlogDeletePostController" ng-click="deletePost(post._id, post._rev)" class="delete-button">X</button>
     </div>
 </div>
 <div ng-controller="BlogAddPostController" ng-include="'/partials/blog/add-post.html'"></div>

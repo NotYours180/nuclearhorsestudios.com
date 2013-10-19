@@ -93,11 +93,10 @@ define(['DbTypeFactory'], function(DbTypeFactory) {
 
         describe('delete', function() {
 
-            it('Calls $http.delete with correct url for deleting id 1', function() {
-                var data        = { _id: 1 };
-                var expectedUrl = host + '/' + dbName + '/' + data._id;
+            it('Calls $http.delete with correct url for deleting id 012345 revision 1', function() {
+                var expectedUrl = host + '/' + dbName + '/012345?rev=1';
                 var httpSpy     = spyOn($http, 'delete');
-                var results     = factory.delete(data);
+                var results     = factory.delete('012345', '1');
 
                 expect(httpSpy).toHaveBeenCalledWith(expectedUrl);
             });

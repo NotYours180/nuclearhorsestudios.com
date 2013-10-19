@@ -21,5 +21,7 @@ define([], function() {
             CouchFactory.logIn($scope.login.username, $scope.login.password)
                         .success($scope.onLogin);
         };
+
+        $scope.onLogin();
     };
 });
