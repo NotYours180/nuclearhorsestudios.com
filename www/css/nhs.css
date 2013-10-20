@@ -174,7 +174,7 @@ input, textarea {
 
 nav ul {
     z-index: 30;
-    background-image: url(../images/navBackground.png);
+    background-color: #5b3016;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     box-shadow: 0px 0px 20px black;
