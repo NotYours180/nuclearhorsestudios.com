@@ -210,8 +210,8 @@ module.exports = function(grunt)
     });
 
     grunt.registerTask('scripts', ['copy:scripts_to_temp', 'jshint', 'ngmin','requirejs']);
-    grunt.registerTask('styles' , ['cssmin', 'cssmin:jasmine', 'less']);
-    grunt.registerTask('images' , ['imagemin', 'imageEmbed']);
+    grunt.registerTask('styles' , ['imageEmbed', 'cssmin', 'cssmin:jasmine', 'less']);
+    grunt.registerTask('images' , ['imagemin']);
     grunt.registerTask('default', ['clean:on_start', 'images', 'scripts','styles','htmlmin','replace:dist_build_time','clean:on_finish']);
     grunt.registerTask('dev'    , ['setup-dev','default']);
 };
