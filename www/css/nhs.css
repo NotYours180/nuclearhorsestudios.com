@@ -355,8 +355,7 @@ nav ul li a {
 #blog-admin-control-panel > div {
     display: inline-block;
     width: 100%;
-    line-height: 3em;
-    height: 3em;
+    height: 1em;
     padding: 0.5em;
     margin-bottom: 0.5em;
     border-radius: 0.5em;

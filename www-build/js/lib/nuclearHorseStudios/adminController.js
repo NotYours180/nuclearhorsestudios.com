@@ -1,1 +1,0 @@
-define([],function(){return function($scope,blogData){function filterResponse(data){this.posts=_(data.rows).map(function(row){return row.value})}function handleResponseError(data,status){this.status=status}$scope.posts=[],blogData.getAll().success(filterResponse.bind($scope)).error(handleResponseError.bind($scope))}});

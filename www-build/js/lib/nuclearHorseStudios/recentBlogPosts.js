@@ -1,1 +1,0 @@
-define([],function(){return function($scope,blogData){$scope.posts=[],blogData.getRecent(5).success(function(data){$scope.posts=_(data.rows).map(function(row){return row.value})}).error(function(data,status){$scope.status=status})}});

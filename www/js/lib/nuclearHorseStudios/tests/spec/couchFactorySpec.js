@@ -5,7 +5,7 @@ define(['CouchFactory', 'MockHttp', 'ngCookies', 'underscore'], function(CouchFa
         var factory, $http, host;
 
         var initFactory = inject(function($cookies) {
-            factory = CouchFactory($http, $cookies);
+            factory = new CouchFactory($http, $cookies);
             host    = factory.host;
         });
 

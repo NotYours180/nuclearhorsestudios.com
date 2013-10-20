@@ -16,7 +16,7 @@ define(['DbTypeFactory'], function(DbTypeFactory) {
             dbName      = 'nuclearhorseblog';
             designDoc   = '_design/blog';
 
-            factory = DbTypeFactory(type, host, dbName, designDoc)($http);
+            factory = new DbTypeFactory(type, host, dbName, designDoc)($http);
         });
 
         describe('getAll', function() {

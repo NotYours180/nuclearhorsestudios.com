@@ -28,7 +28,7 @@ define(['Controllers', 'CouchFactory', 'MockHttp', 'ngCookies'],
                 },
             };
 
-            factory = CouchFactory(MockHttp, $cookies);
+            factory = new CouchFactory(MockHttp, $cookies);
             $scope = {};
             $scope.login = {};
             $scope.login.username = 'username';

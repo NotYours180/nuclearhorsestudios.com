@@ -22,7 +22,7 @@ module.exports = function(grunt)
         tempDir: 'temp',
         jshint: {
             dist: {
-                files: { src: ['www/js/lib/nuclearHorseStudios/*.js'] },
+                files: { src: ['www/js/lib/nuclearHorseStudios/**/*.js'] },
                 options: {
                     globals: {
                         camelcase: true,

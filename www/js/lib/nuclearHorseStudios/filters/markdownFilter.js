@@ -9,6 +9,6 @@ define(['showdown'], function() {
             // digest loop problem.
             // https://github.com/angular/angular.js/issues/3932
             return trusted[input] || (trusted[input] = $sce.trustAsHtml(converter.makeHtml(input || ''))); 
-        }
-    }
+        };
+    };
 });

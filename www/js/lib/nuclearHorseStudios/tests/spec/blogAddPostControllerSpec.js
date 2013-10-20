@@ -13,7 +13,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
 
             blogDataFactory = {
                 add: function() { return mockHttp; }
-            }
+            };
         });
 
         afterEach(function() {
