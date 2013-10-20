@@ -75,7 +75,7 @@ body {
     right: 0;
     bottom: 0;
     top: 0;
-    color: #e3e3e3;
+    color: #cccccc;
     background-color: #1c1714;
 
     font-family: 'Oswald', sans-serif;
@@ -91,7 +91,7 @@ body {
     font-size: 3.5em;
     color: #ffe6ba;
     box-shadow: 0px 0px 20px black;
-    text-shadow: #ff7800 0em 0em 0.3em;
+    text-shadow: #ff7800 0em 0em 0.05em;
     height: 75px;
     padding-top: 0.15em;
     padding-right: 0.25em;
@@ -179,7 +179,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #ffe6ba;
+    color: #dddddd;
     
     font-size: 1.5em;
     font-weight: 100;
@@ -187,6 +187,7 @@ nav ul li a {
 
 nav ul li a:hover {
     text-shadow: #ff7800 0em 0em 0.3em;
+    color: #ffe6ba;
 }
 
 .darkened {
