@@ -11,6 +11,8 @@ js/lib/nuclearHorseStudios/controllers/recentBlogPostsController.js
 js/lib/nuclearHorseStudios/controllers/blogAddPostController.js
 js/lib/nuclearHorseStudios/controllers/blogDeletePostController.js
 js/lib/nuclearHorseStudios/controllers/blogAdminController.js
+js/lib/dep/underscore.min.js
+js/lib/nuclearHorseStudios/controllers/blogPostsPaginatedController.js
 js/lib/nuclearHorseStudios/controllers/adminController.js
 js/lib/nuclearHorseStudios/controllers/creationsController.js
 js/lib/nuclearHorseStudios/controllers/contactController.js
@@ -22,5 +24,4 @@ js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/filters/markdownFilter.js
 js/lib/nuclearHorseStudios/filters/blogPostDateFilter.js
 js/lib/nuclearHorseStudios/routeProvider.js
-js/lib/dep/underscore.min.js
 js/lib/nuclearHorseStudios/nuclearHorseStudios.js

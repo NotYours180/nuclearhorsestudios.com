@@ -1,0 +1,1 @@
+define(["underscore"],function(){return function($scope,blogData){var _requestedPage;$scope.currentPage=1,$scope.onGetPage=function(data){$scope.posts=_(data.rows).map(function(row){return row.value}),$scope.currentPage=_requestedPage},$scope.getPage=function(pageNum,itemsPerPage){return _requestedPage=pageNum,blogData.getPage(pageNum,itemsPerPage).success($scope.onGetPage)}}});
