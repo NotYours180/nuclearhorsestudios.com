@@ -31,6 +31,9 @@ define(['Controllers'], function(controllers) {
                 templateUrl: 'partials/contact.html', 
                 controller: controllers.ContactController
             })
+            .when('/theroguesea', {
+                templateUrl: 'partials/theroguesea.html'
+            })
             .otherwise({redirectTo: '/blog'});
     };
 });

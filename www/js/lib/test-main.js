@@ -22,14 +22,16 @@ requirejs.config({
         underscore:          'js/lib/dep/underscore.min',
         ngCookies:           'js/lib/dep/angular-cookies',
         ngMock:              'js/lib/dep/angular-mocks',
+        owl:                 'js/lib/dep/owl.carousel',
         MockHttp:            'js/lib/nuclearHorseStudios/tests/mockHttp',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
         BlogPostDateFilter:  'js/lib/nuclearHorseStudios/filters/blogPostDateFilter',
+        ngOwl:               'js/lib/nuclearHorseStudios/directives/ngOwl',
         DbTypeFactory:       'js/lib/dbTypeFactory',
         CouchFactory:        'js/lib/nuclearHorseStudios/factories/couchFactory',
-        RouteProvider:       'js/lib/nuclearHorseStudios/routeProvider',
+        RouteProvider:       'js/lib/nuclearHorseStudios/routeProvider'
     },
 
     shim: {

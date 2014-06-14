@@ -17,7 +17,6 @@ define([], function() {
         };
 
         $scope.login = function() {
-            
             CouchFactory.logIn($scope.login.username, $scope.login.password)
                         .success($scope.onLogin);
         };

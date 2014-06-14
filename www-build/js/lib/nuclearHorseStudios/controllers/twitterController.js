@@ -1,0 +1,1 @@
+define(["jquery"],function($){return function($scope,$timeout){$timeout(function(){$.ajax({url:"http://platform.twitter.com/widgets.js",dataType:"script",cache:!0})},10)}});

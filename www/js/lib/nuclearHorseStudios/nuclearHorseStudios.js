@@ -8,6 +8,7 @@ define([
     'CouchFactory',
     'MarkDownFilter',
     'BlogPostDateFilter',
+    'ngOwl',
     'RouteProvider',
     'underscore',
     'showdown'], 
@@ -22,6 +23,7 @@ define([
         CouchFactory,
         MarkDownFilter,
         BlogPostDateFilter,
+        ngOwl,
         RouteProvider) 
     {
         'use strict';
@@ -35,8 +37,9 @@ define([
                       .controller(Controllers)
                       .filter('markdown', ['$sce', MarkDownFilter])
                       .filter('blogPostDate', BlogPostDateFilter)
+                      .directive('ngOwl', ngOwl)
                       .factory('blogData', blogDataFactory)
-                      .factory('CouchFactory', CouchFactory)
+                      .factory('CouchFactory', CouchFactory) 
                       .config([ '$routeProvider', RouteProvider ]);
     }
 );

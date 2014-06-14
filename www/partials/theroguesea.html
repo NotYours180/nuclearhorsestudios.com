@@ -1,0 +1,305 @@
+<div id="theroguesea">
+    <h1 class="microtile-darkened">The Rogue Sea</h1>
+
+    <h2>
+        An independently developed pirate game for Mac, Linux, and Windows
+    </h2>
+
+    <section class="quick-table">
+        <div class="col2 owl-carousel owl-theme" ng-owl>
+            <div class="item">
+                <img class="lazyOwl" data-src="/images/screenshots/sailsback.png" />
+                <div>Command a fleet of multiple ships in battle</div>
+            </div>
+            <div class="item">
+                <img class="lazyOwl" data-src="/images/screenshots/niceisland.png" />
+                <div>Testing the random island generator</div>
+            </div>
+            <div class="item">
+                <img class="lazyOwl" data-src="/images/screenshots/waves.png" />
+                <div>Dynamic time and weather cycles</div>
+            </div>
+            <div class="item">
+                <img class="lazyOwl" data-src="/images/screenshots/puncturehull.png" />
+                <div>First hull destruction tests</div>
+            </div>
+        </div>
+        <div class="microtile-grayed col3" ng-controller="FaqController">
+            <h3 class="darkened">Frequently Asked Questions</h3>
+            <ul>
+                <li>
+                    <a data-ng-click="scrollToHash('faq1')">
+                        What kind of game is The Rogue Sea?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq2')">
+                        What is the setting?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq3')">
+                        What is the combat like?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq4')">
+                        Which platforms will The Rogue Sea be released on?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq5')">
+                        How will The Rogue Sea be funded?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq6')">
+                        When will it be released?  What is the current status
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq7')">
+                        What's taking so long?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq8')">
+                        What is your definition of Alpha, Beta, etc?
+                    </a>
+                </li>
+                <li>
+                    <a data-ng-click="scrollToHash('faq9')">
+                        Is this just an FTL clone with pirates?
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="faq microtile-grayed">
+        <dl>
+            <dd>
+                <a name="faq1"></a>
+                What kind of game is The Rogue Sea?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    The Rogue Sea can be loosely described as a Rogue-lite.
+                    Each time the player begins the game a new world is randomly
+                    generated.  This world consists of a series of islands, each
+                    island possibly containing towns, cities, buried treasure, 
+                    and other things to interact with. 
+                </p>
+                <p>
+                    The Fleet Captain (Player) looks over the map in the 
+                    Captain's Quarters of the fleet's flagship vessel.  He or 
+                    she chooses where to sail to, and handles affairs brought 
+                    to attention from the officers.  
+                </p>
+                <p>
+                    While sailing between islands the fleet may encounter 
+                    other friendly, neutral, and hostile ships.  
+                </p>
+                <p>
+                    The game is being primarily balanced around a perma-death
+                    experience, but will most likely include an "Easy" play
+                    mode which allows arbitrary saving. 
+                </p>
+            </dt>
+
+            <dd>
+                <a name="faq2"></a>
+                What is the setting of The Rogue Sea?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    The Rogue Sea is a fictional section of the Carribean Sea defined 
+                    by convergence of vital shipping channels during the golden age of 
+                    piracy.  
+                </p>
+                <p>
+                    Nation-states wrestle for control of the Rogue Sea with little 
+                    regard for the people inhabiting the local islands.  The people
+                    struggle to survive as the heavy shipping volume brings with it 
+                    pollution and overfishing. With the local economies in turmoil, 
+                    and countless livelihoods destroyed, many turn to piracy.
+                </p>
+            </dt>
+
+            <dd>
+                <a name="faq3"></a>
+                What is the combat like?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    Combat takes place in real time, with the ability to 
+                    pause the action at any time and issue commands to fleet
+                    ships and crew members (navigational commands, aim / fire 
+                    weapon groups, brace for incoming fire, etc).
+                </p>
+                <p>
+                    The player can control a fleet of one or more ships, 
+                    and each ship can be heavily customized with regards to 
+                    combat abilities and also appearance. 
+                </p>
+                <p>
+                    Much work has been put into building technology to allow 
+                    interesting and meaningful ship destruction.  Ships are 
+                    modeled board by board, and each piece of the ship's 
+                    structure is destructible.  Sails deform and tear when 
+                    shot, making them less effective and slowing the ship.      
+                </p>
+                <p>
+                    Good tactics, timing, and aim matters, beyond just 
+                    lowering a simple "hull health" value.  Disabling key 
+                    components on an enemy ship may convince them to 
+                    surrender, allowing the player to seize the ship for 
+                    their fleet.  Or, the player can instead choose to just 
+                    bombard the enemy to bits and sink the ship... 
+                    increasing their infamy. 
+                </p>
+            </dt>
+            
+            <dd>
+                <a name="faq4"></a>
+                Which platforms will The Rogue Sea release on?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    The Rogue Sea is currently being built for Mac, Linux, 
+                    and Windows.  
+                </p>
+            </dt>
+
+            <dd>
+                <a name="faq5"></a>
+                How will the The Rogue Sea be funded?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    A Kickstarter is planned, probably around mid-alpha.  It's 
+                    very important to me that the game is proven to be feasible
+                    and also fun before asking for any crowd funding.  
+                </p>
+                <p>
+                    If successful, the funding will primarily be used to buy 
+                    non-programmer art assets and to pay for help with overall
+                    art direction with actual artists.  Funding will also be 
+                    used for music production / licensing and other miscellaneous 
+                    costs
+                </p>
+                <p>
+                    I'm wearing of steam early-access funding, and that isn't 
+                    actively being planned at the moment.  
+                </p> 
+            </dt>
+
+            <dd>
+                <a name="faq6"></a>
+                When will The Rogue Sea be released?  What is the current status?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    Release date is still to be determined.  Early, broken but
+                    playable, alpha is scheduled to be ready within 2-3 months.  
+                </p>
+                <p>
+                    Once technically playable, it will be seeded to progressively
+                    greater numbers of people for testing and feedback as 
+                    development continues.
+                </p>
+                <p>
+                    Currently, most of the basic technology that needed to be 
+                    built has been.  These things include basic ocean rendering,
+                    random island generation, granular ship destruction models,
+                    and Crew Management / AI / Pathfinding.  Work is now beginning 
+                    on tying these basic technology blocks together into something 
+                    interesting and fun.  
+                </p>
+            </dt>
+
+            <dd>
+                <a name="faq7"></a>
+                What's taking so long?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    The Rogue Sea is currently being primarily developed by me,
+                    a single person.  I don't art very well. 
+                </p>
+                <p>
+                    In addition, many hours have been invested experimenting, 
+                    cutting scope, and building the basic technology needed 
+                    to create a pirate game that has real depth; rather than 
+                    a collection of pirate tropes wrapped in a generic 
+                    action-rpg.  
+                </p>
+                <p>
+                    Whether the game will be any good is still unknown, 
+                    but any failings it has will not be from lazily cutting 
+                    corners in the design.   
+                </p>
+                <p>
+                    I've had to build out a lot of of ideas, most bad, in order 
+                    to trim most of it away and carve out something focused 
+                    and interesting.  
+                </p>   
+            </dt>
+
+            <dd>
+                <a name="faq8"></a>
+                What is your definition of Alpha, Beta, etc?
+            </dd>
+            <dt class="darkened"> 
+                <p>
+                    I define Alpha as being feature incomplete, but a cohesive
+                    experience with all major game systems in place.  In the 
+                    case of The Rogue Sea, this will be when a player can:
+                    <ul>
+                        <li>Begin a new game</li>
+                        <li>View the generated world islands</li>
+                        <li>Choose an island or area to sail to</li>
+                        <li>Encounter other fleets while sailing</li>
+                        <li>Battle with other ships</li>
+                        <li>Have a simple overall end/win state to work towards</li>
+                    </ul>
+                </p>
+                <p>
+                    Once those major systems are in place the 
+                    game will officially be in Alpha.  It will remain in alpha
+                    while gameplay is tweaked, subsystems added, and until 
+                    it is technically feature (but not content) complete.
+                </p>
+                <p>
+                    After the game is technically feature complete (basic code 
+                    for the game systems are in place), we'll enter Beta which 
+                    will be focused completely on bug fixes, game balance, 
+                    content, art and polish.    
+                </p>
+            </dt>
+
+            <dd>
+                <a name="faq9"></a>
+                Is this just an FTL clone with pirates?
+            </dd>
+            <dt class="darkened">
+                <p>
+                    No, though <a href="http://www.ftlgame.com/" target="_new">
+                    FTL</a> is a great game and serves as inspiration 
+                    in number of areas, most notably the combat.  The Rogue 
+                    Sea uses a real-time, but pause-able, combat system. This 
+                    is similar in many ways to FTL, though in The Rogue Sea 
+                    the combat takes place in 3D on the ocean, making 
+                    navigation and positioning relevant. 
+                </p>
+                <p>
+                    Beyond that, things are quite different with regards to 
+                    pacing, micromanagement, and overall feel.  The player 
+                    sets their own pace through the world of The Rogue Sea 
+                    to a much greater extent, and most crew members are 
+                    almost entirely autonomous.  
+                </p>
+            </dt>
+        </dl>
+    </section>
+</div>

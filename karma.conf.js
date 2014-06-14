@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Wed Oct 16 2013 23:07:04 GMT-0400 (EDT)
+// Generated on Wed Jun 11 2014 02:54:15 GMT-0400 (EDT)
 
 module.exports = function(config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: 'www',
+    basePath: 'www/',
 
 
     // frameworks to use
@@ -20,11 +20,7 @@ module.exports = function(config) {
       'js/lib/dep/angular-route.js',
       'js/lib/dep/angular-cookies.js',
       'js/lib/test-main.js',
-      {pattern: 'js/lib/*.js',                      included: false },
-      {pattern: 'js/lib/dep/*.js',                  included: false },
-      {pattern: 'js/lib/nuclearHorseStudios/*.js',  included: false },
-      {pattern: 'js/lib/nuclearHorseStudios/**/*.js',  included: false },
-      {pattern: 'js/**/*Spec.js',                   included: false}
+      {pattern: '**/*.js', included: false}
     ],
 
 
@@ -64,7 +60,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Firefox'],
+    browsers: ['Chrome', 'Firefox'],
 
 
     // If browser does not capture in given timeout [ms], kill it

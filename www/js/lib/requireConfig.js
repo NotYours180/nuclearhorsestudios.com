@@ -14,6 +14,8 @@ require.config({
         jasmine:             'js/lib/dep/jasmine',
         jasmineFixture:      'js/lib/dep/jasmine-fixture',
         jasmineHtml:         'js/lib/dep/jasmine-html',
+        owl:                 'js/lib/dep/owl.carousel',
+        ngOwl:               'js/lib/nuclearHorseStudios/directives/ngOwl',
         Controllers:         'js/lib/nuclearHorseStudios/controllers',
         BlogDataFactory:     'js/lib/nuclearHorseStudios/factories/blogDataFactory',
         MarkDownFilter:      'js/lib/nuclearHorseStudios/filters/markdownFilter',
@@ -62,6 +64,12 @@ require.config({
         jasmineFixture: {
             deps: ['jasmine'],
             exports: 'jasmine'
+        },
+        jquery: {
+            exports: '$'
+        },
+        owl: {
+            deps: ['jquery']
         }
     },
 

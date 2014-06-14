@@ -1,1 +1,1 @@
-define([],function(){return function($scope){$scope.hello="hi"}});
+define([],function(){return function($scope,$http){$scope.contact={},$scope.successful=!1,$scope.isPosting=!1,$scope.onSuccess=function(){$scope.successful=!0,$scope.isPosting=!1},$scope.onError=function(){$scope.successful=!1,$scope.isPosting=!1},$scope.submitContact=function(s){$scope.contact.type="contact",$scope.isPosting=!0,s.contactForm.$valid&&$http.post("http://nuclearhorsestudios.com/contact",$scope.contact).success($scope.onSuccess).error($scope.onError)}}});

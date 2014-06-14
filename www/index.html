@@ -1,13 +1,11 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Nuclear Horse Studios</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <link href='css/nhs.css' rel='stylesheet' type='text/css'></link> 
-        
-        <script src="js/lib/dep/require.js" data-main="NuclearHorseStudios"></script>
-        <script src="js/lib/requireConfig.js"></script>
+       
+        <title>Nuclear Horse Studios</title>
     </head>
     <body ng-app="NuclearHorseStudios">
         <div class="facia">
@@ -19,16 +17,21 @@
             <nav>
                 <ul>
                     <li><a href="#/blog">BLOG</a></li>
+                    <li><a href="#/theroguesea">THE ROGUE SEA</a></li>
                     <li><a href="#/contact">CONTACT</a></li>
                 </ul>
             </nav>
             <div id="content-view" ng-view></div>
             
-            <div id="footer-container" class="darkened">
+            <div id="footer-container" class="microtile-grayed">
                 &copy; 2013 Nuclear Horse Studios
             </div>
         </div>
     </body>
+ 
+    <script src="js/lib/dep/require.js" data-main="NuclearHorseStudios"></script>
+    <script src="js/lib/requireConfig.js"></script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,4 +41,5 @@
       ga('create', 'UA-44594494-1', 'nuclearhorsestudios.com');
       ga('send', 'pageview');
     </script>
+
 </html>

@@ -5,10 +5,12 @@ define(['showdown'], function() {
         var trusted = {};
         return function(input) {
             var converter = new Showdown.converter();
+            var html = converter.makeHtml(input || '');
             // trusted is a hack to get around current angular infinite 
             // digest loop problem.
             // https://github.com/angular/angular.js/issues/3932
-            return trusted[input] || (trusted[input] = $sce.trustAsHtml(converter.makeHtml(input || ''))); 
+            trusted[input] = trusted[input] || $sce.trustAsHtml(html);
+            return trusted[input]; 
         };
     };
 });

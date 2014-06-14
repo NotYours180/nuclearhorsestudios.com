@@ -1,0 +1,2 @@
+define(['Controllers'], function(controllers) {
+});

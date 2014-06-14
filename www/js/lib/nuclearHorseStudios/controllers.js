@@ -7,7 +7,9 @@ define([
     'js/lib/nuclearHorseStudios/controllers/adminController',
     'js/lib/nuclearHorseStudios/controllers/creationsController',
     'js/lib/nuclearHorseStudios/controllers/contactController',
-    'js/lib/nuclearHorseStudios/controllers/loginController'], 
+    'js/lib/nuclearHorseStudios/controllers/loginController',
+    'js/lib/nuclearHorseStudios/controllers/twitterController',
+    'js/lib/nuclearHorseStudios/controllers/faqController'], 
 
     function(
         RecentBlogPosts,
@@ -18,7 +20,9 @@ define([
         AdminController,
         CreationsController,
         ContactController,
-        LoginController
+        LoginController,
+        TwitterController,
+        FaqController
     ) {
         
         return {
@@ -30,6 +34,8 @@ define([
             AdminController:              AdminController,
             CreationsController:          CreationsController,
             ContactController:            ContactController,
-            LoginController:              LoginController
+            LoginController:              LoginController,
+            TwitterController:            TwitterController,
+            FaqController:                FaqController
         };
 });

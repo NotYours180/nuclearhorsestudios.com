@@ -17,11 +17,15 @@ js/lib/nuclearHorseStudios/controllers/adminController.js
 js/lib/nuclearHorseStudios/controllers/creationsController.js
 js/lib/nuclearHorseStudios/controllers/contactController.js
 js/lib/nuclearHorseStudios/controllers/loginController.js
+js/lib/nuclearHorseStudios/controllers/twitterController.js
+js/lib/nuclearHorseStudios/controllers/faqController.js
 js/lib/nuclearHorseStudios/controllers.js
 js/lib/dbTypeFactory.js
 js/lib/nuclearHorseStudios/factories/couchFactory.js
 js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/filters/markdownFilter.js
 js/lib/nuclearHorseStudios/filters/blogPostDateFilter.js
+js/lib/dep/owl.carousel.js
+js/lib/nuclearHorseStudios/directives/ngOwl.js
 js/lib/nuclearHorseStudios/routeProvider.js
 js/lib/nuclearHorseStudios/nuclearHorseStudios.js
