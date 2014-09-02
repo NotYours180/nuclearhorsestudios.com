@@ -5,7 +5,7 @@ define([], function() {
         var factory;
 
         factory = {
-            host: 'http://' + window.location.host + '/db',
+            host: 'http://' + window.location.host + '/couch',
             isLoggedIn: false,
             sessionInfo: {},
 
