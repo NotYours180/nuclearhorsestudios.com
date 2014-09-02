@@ -1,6 +1,7 @@
 define([
     'js/lib/nuclearHorseStudios/controllers/recentBlogPostsController',
     'js/lib/nuclearHorseStudios/controllers/blogAddPostController',
+    'js/lib/nuclearHorseStudios/controllers/blogViewPostController',
     'js/lib/nuclearHorseStudios/controllers/blogDeletePostController',
     'js/lib/nuclearHorseStudios/controllers/blogAdminController',
     'js/lib/nuclearHorseStudios/controllers/blogPostsPaginatedController',
@@ -14,6 +15,7 @@ define([
     function(
         RecentBlogPosts,
         BlogAddPostController,
+        BlogViewPostController,
         BlogDeletePostController,
         BlogAdminController,
         BlogPostsPaginatedController,
@@ -28,6 +30,7 @@ define([
         return {
             RecentBlogPosts:              RecentBlogPosts,
             BlogAddPostController:        BlogAddPostController,
+            BlogViewPostController:       BlogViewPostController,
             BlogDeletePostController:     BlogDeletePostController,
             BlogAdminController:          BlogAdminController,
             BlogPostsPaginatedController: BlogPostsPaginatedController,

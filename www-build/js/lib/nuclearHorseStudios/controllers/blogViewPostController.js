@@ -1,0 +1,1 @@
+define([],function(){return function($scope,blogData,$routeParams){$scope.post={},blogData.getDoc($routeParams.pageId).success(function(data){$scope.post=data}).error(function(data,status){$scope.status=status})}});

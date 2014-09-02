@@ -1,8 +1,11 @@
-<h2 class="darkened">
-    {{ post.title }}
-    <span ng-if="post.title || post.body" class="blog-date">
-        {{ post.date | blogPostDate }}
-    </span>
-</h2>
-
-<p ng-bind-html="post.body | markdown"></p>
+<div class="blog-post">
+	<a href="#/blog/page/{{ post._id }}/">
+	    <h2 class="title-box">
+	    	{{ post.title }}
+		    <div ng-if="post.title || post.body" class="blog-date">
+		        {{ post.date | blogPostDate }}
+		    </div>
+		</h2>
+	</a>
+</div>
+<div class="blog-post-body" ng-bind-html="post.body | markdown"></div>

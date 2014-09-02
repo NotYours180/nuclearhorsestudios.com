@@ -9,6 +9,7 @@ js/lib/dep/angular-route.js
 js/lib/dep/angular-cookies.js
 js/lib/nuclearHorseStudios/controllers/recentBlogPostsController.js
 js/lib/nuclearHorseStudios/controllers/blogAddPostController.js
+js/lib/nuclearHorseStudios/controllers/blogViewPostController.js
 js/lib/nuclearHorseStudios/controllers/blogDeletePostController.js
 js/lib/nuclearHorseStudios/controllers/blogAdminController.js
 js/lib/dep/underscore.min.js
@@ -25,7 +26,7 @@ js/lib/nuclearHorseStudios/factories/couchFactory.js
 js/lib/dep/showdown.js
 js/lib/nuclearHorseStudios/filters/markdownFilter.js
 js/lib/nuclearHorseStudios/filters/blogPostDateFilter.js
-js/lib/dep/owl.carousel.js
-js/lib/nuclearHorseStudios/directives/ngOwl.js
+js/lib/nuclearHorseStudios/directives/ngNav.js
 js/lib/nuclearHorseStudios/routeProvider.js
+js/lib/dep/jquery.lightbox.js
 js/lib/nuclearHorseStudios/nuclearHorseStudios.js

@@ -19,14 +19,18 @@ define([], function() {
                 return $http.get(docViewUri + params);
             };
 
-            factory.add = function(data) {
-                
+            factory.add = function(data) {                
                 return $http.post(dbLocation, data);
             };
 
             factory.delete = function(id, rev) {
                 return $http.delete(dbLocation + '/' + id + '?rev=' + rev);
             };
+
+            factory.getDoc = function(id)
+            {
+                return $http.get(dbLocation + id);
+            }
 
             factory.getPage = function(pageNum, itemsPerPage) {
                 

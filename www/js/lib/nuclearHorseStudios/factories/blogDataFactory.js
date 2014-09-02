@@ -12,6 +12,10 @@ define([], function() {
             return $http.get(blogPostsUri + '?descending=true');
         };
 
+        factory.getPost = function(hash) {
+            return $http.get(dbLocation + hash);
+        };
+
         factory.addPost = function(post) {
             return $http.post(dbLocation, post);
         };

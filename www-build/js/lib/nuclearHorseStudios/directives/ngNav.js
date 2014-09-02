@@ -1,0 +1,1 @@
+define(["jquery"],function($){return function(){return{link:function(scope){scope.activateNav=function(elId){$("ul.nav li").removeClass("active"),$("#"+elId).addClass("active")}}}}});

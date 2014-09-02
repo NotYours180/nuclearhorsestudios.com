@@ -5,7 +5,15 @@ define(['Controllers'], function(controllers) {
         $routeProvider
             .when('/blog', {
                 templateUrl: 'partials/blog/recent-posts.html', 
-                controller: controllers.RecentBlogPosts
+                controller: controllers.BlogPostsPaginatedController
+            })
+            .when('/blog/:pageNumber', {
+                templateUrl: 'partials/blog/recent-posts.html',
+                controller: controllers.BlogPostsPaginatedController
+            })
+            .when('/blog/page/:pageId', {
+                templateUrl: 'partials/blog/view-post.html',
+                controller: controllers.BlogViewPostController
             })
             .when('/blog/admin', {
                 templateUrl: 'partials/blog/admin.html',

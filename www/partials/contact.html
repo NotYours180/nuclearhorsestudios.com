@@ -1,26 +1,32 @@
-<div id="contact">
-    <div id="contactform" class="darkened" data-ng-controller="ContactController">
-        <h2>
+<div class="row" id="contact">
+    <div id="contactform" class="col-sm-8 col-sm-offset-2" data-ng-controller="ContactController">
+        <h2 class="title-box">
             Contact us with all your Nuclear Horse related questions or for 
             general life advice
         </h2>
+        <div class="contact-email">
+            support <strong>[at]</strong> nuclearhorsestudios
+        </div>
         <hr />
         <form name="contactForm" novalidate data-ng-if="!successful">
             <fieldset>
                 <label for="contact-name">Name: </label>
-                <input type="text" name="name" id="contactname" data-ng-model="contact.name" />
+                <input type="text" name="name" id="contactname" class="form-control" data-ng-model="contact.name" />
 
                 <label for="contact-name">Email: </label>
-                <input type="email" name="email" id="contact-email" data-ng-model="contact.email" />
+                <input type="email" name="email" id="contact-email" class="form-control" data-ng-model="contact.email" />
 
                 <span class="validation" ng-show="contactForm.comment.$error.required">Comment is required</span>
                 <label for="contact-comment">Comment:</label>
-                <textarea name="comment" id="contact-comment" data-ng-model="contact.comment" required></textarea>
+                <textarea name="comment" id="contact-comment" data-ng-model="contact.comment" class="form-control" required></textarea>
 
                 <br />
 
-                <button type="submit" data-ng-click="submitContact(this)">Submit!</button>
+                <button type="submit" class="btn btn-default" data-ng-click="submitContact(this)">Send feedback!</button>
             </fieldset>
         </form>
+        <div class="contact-successful" data-ng-if="successful">
+            Thank you for contacting Nuclear Horse Studios.  We'll probably get back you you eventually. 
+        </div>
     </div>
 </div>

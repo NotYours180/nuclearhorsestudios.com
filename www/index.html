@@ -2,37 +2,57 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href='css/nhs.css' rel='stylesheet' type='text/css'></link> 
        
         <title>Nuclear Horse Studios</title>
     </head>
     <body ng-app="NuclearHorseStudios">
-        <div class="facia">
-            <div id="left-margin" class="margin"></div>
-            <div id="right-margin" class="margin"></div>
-        </div>
-        <div id="content-container">
-            <h1>NUCLEAR HORSE STUDIOS</h1>
-            <nav>
-                <ul>
-                    <li><a href="#/blog">BLOG</a></li>
-                    <li><a href="#/theroguesea">THE ROGUE SEA</a></li>
-                    <li><a href="#/contact">CONTACT</a></li>
-                </ul>
-            </nav>
-            <div id="content-view" ng-view></div>
-            
-            <div id="footer-container" class="microtile-grayed">
-                &copy; 2013 Nuclear Horse Studios
+        <!-- Fixed navbar -->
+        <div ng-nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#/blog">Nuclear Horse Studios</a>
             </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li id="nav-blog" ng-click="activateNav('nav-blog')"><a href="#/blog">Blog</a></li>
+                <li id="nav-trs" ng-click="activateNav('nav-trs')"><a href="#/theroguesea">The Rogue Sea</a></li>
+                <li id="nav-contact" ng-click="activateNav('nav-contact')"><a href="#/contact">Contact</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a target="_blank" class="twitter-btn" title="Follow @nuchorsestudios on Twitter" href="https://twitter.com/intent/user?screen_name=nuchorsestudios">
+                    <i></i>
+                    <span class="label">Follow @nuchorsestudios</span>
+                  </a>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+        <div id="content-container" class="container-fluid">
+            <div id="content-view" ng-view></div>
+        </div>
+
+        <div class="footer">
+          <div class="container">
+            <p>&copy; 2013 Nuclear Horse Studios</p>
+          </div>
         </div>
     </body>
     
     <script src="js/lib/dep/require.js" data-main="NuclearHorseStudios"></script>
     <script src="js/lib/requireConfig.js"></script>
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->    
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
