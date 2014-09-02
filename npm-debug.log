@@ -1,0 +1,61 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', './custom-json' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.30
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json nuclearhorsestudios.com@0.0.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ './custom-json', null ]
+8 verbose cache add name=undefined spec="./custom-json" args=["./custom-json",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: './custom-json',
+9 verbose parsed url   path: './custom-json',
+9 verbose parsed url   href: './custom-json' }
+10 silly lockFile 63fa9d4c-custom-json ./custom-json
+11 verbose lock ./custom-json /Users/mlasky/.npm/63fa9d4c-custom-json.lock
+12 info maybeGithub Attempting ./custom-json from git://github.com/./custom-json
+13 silly lockFile 7716da40-git-github-com-custom-json git://github.com/./custom-json
+14 verbose lock git://github.com/./custom-json /Users/mlasky/.npm/7716da40-git-github-com-custom-json.lock
+15 verbose addRemoteGit [ 'git://github.com/./custom-json', 'master' ]
+16 verbose git clone git://github.com/./custom-json Cloning into bare repository '/Users/mlasky/.npm/_git-remotes/git-github-com-custom-json-7716da40'...
+16 verbose git clone git://github.com/./custom-json fatal: remote error:
+16 verbose git clone git://github.com/./custom-json   Repository not found.
+17 silly lockFile 7716da40-git-github-com-custom-json git://github.com/./custom-json
+18 silly lockFile 7716da40-git-github-com-custom-json git://github.com/./custom-json
+19 info maybeGithub Attempting ./custom-json from git+ssh://git@github.com:./custom-json
+20 silly lockFile 1b91372a-git-github-com-custom-json git@github.com:./custom-json
+21 verbose lock git@github.com:./custom-json /Users/mlasky/.npm/1b91372a-git-github-com-custom-json.lock
+22 verbose addRemoteGit [ 'git@github.com:./custom-json', 'master' ]
+23 error git clone git@github.com:./custom-json Cloning into bare repository '/Users/mlasky/.npm/_git-remotes/git-github-com-custom-json-1b91372a'...
+23 error git clone git@github.com:./custom-json Warning: Permanently added 'github.com,192.30.252.130' (RSA) to the list of known hosts.
+23 error git clone git@github.com:./custom-json Permission denied (publickey).
+23 error git clone git@github.com:./custom-json fatal: Could not read from remote repository.
+23 error git clone git@github.com:./custom-json
+23 error git clone git@github.com:./custom-json Please make sure you have the correct access rights
+23 error git clone git@github.com:./custom-json and the repository exists.
+24 silly lockFile 1b91372a-git-github-com-custom-json git@github.com:./custom-json
+25 silly lockFile 1b91372a-git-github-com-custom-json git@github.com:./custom-json
+26 silly lockFile 63fa9d4c-custom-json ./custom-json
+27 silly lockFile 63fa9d4c-custom-json ./custom-json
+28 error addLocal Could not install ./custom-json
+29 error Error: ENOENT, stat './custom-json'
+30 error If you need help, you may report this *entire* log,
+30 error including the npm and node versions, at:
+30 error     <http://github.com/npm/npm/issues>
+31 error System Darwin 13.3.0
+32 error command "node" "/usr/local/bin/npm" "install" "./custom-json"
+33 error cwd /Users/mlasky/nuclearhorsestudios.com
+34 error node -v v0.10.30
+35 error npm -v 1.4.23
+36 error path ./custom-json
+37 error code ENOENT
+38 error errno 34
+39 verbose exit [ 34, true ]
