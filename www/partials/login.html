@@ -1,14 +1,22 @@
-<form class="login-form darkened" ng-if="!loggedIn">
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<form class="login-form darkened" ng-if="!loggedIn" role="form">
 
-    <label for="login-username">Username</label>:
-    <input type="text" ng-model="login.username" id="login-username" />
+			<div class="form-group">
+		    	<label for="login-username">Username</label>:
+		    	<input type="text" ng-model="login.username" class="form-control" id="login-username" />
+		    </div>
 
-    <label for="login-password">Password</label>:
-    <input type="password" ng-model="login.password" id="login-password" />
+		    <div class="form-group">
+		    	<label for="login-password">Password</label>:
+		    	<input type="password" ng-model="login.password" class="form-control"  id="login-password" />
+		    </div>
 
-    <button ng-click="login()">Login</button>
-</form>
+		    <button ng-click="login()">Login</button>
+		</form>
 
-<div class="login-info darkened" ng-if="loggedIn">
-    {{ login.username }}
+		<div class="login-info darkened" ng-if="loggedIn">
+		    {{ login.username }}
+		</div>
+	</div>
 </div>

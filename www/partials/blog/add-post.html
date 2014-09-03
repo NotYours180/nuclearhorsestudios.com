@@ -1,16 +1,21 @@
-<div id="blog-post-add">
-    <form name="addForm" novalidate>
-        <label for="post-title">Title</label>
-        <span class="validation" ng-show="addForm.title.$error.required">Title is required.</span>
-        <input type="text" name="title" id="post-title" ng-model="post.title" required/>
+<div id="blog-post-add" class="content-box">
+    <form name="addForm" novalidate role="form">
+        <div class="form-group">
+            <label for="post-title">Title</label>
+            <span class="validation" ng-show="addForm.title.$error.required">Title is required.</span>
+            <input type="text" name="title" id="post-title" class="form-control" ng-model="post.title" required/>
+        </div>
         
-        <label for="post.data">Body</label>
-        <span class="validation" ng-show="addForm.body.$error.required">Body is required.</span>
-        <textarea name="body" id="post-body" ng-model="post.body" required></textarea>
+        <div class="form-group">
+            <label for="post.data">Body</label>
+            <span class="validation" ng-show="addForm.body.$error.required">Body is required.</span>
+            <textarea name="body" id="post-body" class="form-control" ng-model="post.body" required></textarea>
+        </div>
 
         <button ng-click="savePost(this)">Post</button>
         <button ng-click="resetPost()">Reset</button>
         <div class="reset">{{ status }}</div>
     </form>
+
     <div class="blog-post darkened" ng-include="'/partials/blog/view-post.html'" ></div>
 </div> 

@@ -39,7 +39,7 @@ define(['Controllers', 'MockHttp'], function(controllers, mockHttp) {
             };
 
             $scope = {};
-            controller = controllers.BlogPostsPaginatedController($scope, blogData);
+            controller = controllers.BlogPostsPaginatedController($scope, blogData, {});
         });
 
         describe('getPage', function() {

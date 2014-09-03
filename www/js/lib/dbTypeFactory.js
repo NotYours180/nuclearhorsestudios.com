@@ -29,7 +29,7 @@ define([], function() {
 
             factory.getDoc = function(id)
             {
-                return $http.get(dbLocation + id);
+                return $http.get(dbLocation + "/" + id);
             }
 
             factory.getPage = function(pageNum, itemsPerPage) {
