@@ -369,6 +369,10 @@ ul.nav li.active a
   cursor: pointer;
 }
 
+#login-container
+{
+  margin-top: 1em;
+}
 
 /* Preload images */
 body:after {

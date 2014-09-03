@@ -1,1 +1,1 @@
-<div id="admin-panel"><div id="login-container" ng-controller="LoginController"><div ng-include="'/partials/login.html'" ng-if="loggedIn"></div><div><div id="blog-admin-panel" ng-controller="BlogAdminController" ng-include="'/partials/blog/admin.html'"></div></div></div></div>
+<div id="admin-panel"><div id="login-container" ng-controller="LoginController"><div ng-include="'/partials/login.html'" ng-if="!loggedIn"></div><div><div id="blog-admin-panel" ng-controller="BlogAdminController" ng-if="loggedIn" ng-include="'/partials/blog/admin.html'"></div></div></div></div>
