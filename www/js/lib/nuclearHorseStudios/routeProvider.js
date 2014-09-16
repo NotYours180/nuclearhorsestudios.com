@@ -42,6 +42,9 @@ define(['Controllers'], function(controllers) {
             .when('/theroguesea', {
                 templateUrl: 'partials/theroguesea.html'
             })
+            .when('/manyworlds', {
+                templateUrl: 'partials/manyworlds.html'
+            })
             .otherwise({redirectTo: '/blog'});
     };
 });
